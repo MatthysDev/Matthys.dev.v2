@@ -1,26 +1,33 @@
-import React from 'react'
-import { neonBlue, neonPurple } from '@/components/neonStyles';
+import React from 'react';
 import Link from 'next/link';
 
 type Props = {
-    link: string
-}
+    link: string;
+    isExternal?: boolean;
+    text: string;
+    color: string;
+    className?: string;
+    neonColor?: string;
+};
 
-export default function Button({ link }: Props) {
+export default function Button({ link, isExternal, text, color, className, neonColor }: Props) {
+    const neonShadow = neonColor ? { boxShadow: `0 0 30px ${neonColor}` } : {};
+
     return (
-        <div className='flex gap-8 mt-32'>
-            {/* Neon Purple Button */}
-            <Link href='/about'>
-                <button style={{ padding: '20px', margin: '20px', borderRadius: '8px', cursor: 'pointer', boxShadow: '0 0 30px #93C5FD' }} className='bg-sky-200 text-black'>
-                    See more about me
-                </button>
-            </Link>
-            {/* Neon Blue Div */}
-            <a href={link} target='_blank'>
-                <button style={{ padding: '20px', margin: '20px', borderRadius: '8px', boxShadow: '0 0 30px #D8B4FE' }} className='bg-purple-300 text-black'>
-                    Contact me.
-                </button>
-            </a>
-        </div>
-    )
+        <>
+            {isExternal ? (
+                <a href={link} target='_blank' className='m-5'>
+                    <button style={{ ...neonShadow }} className={`text-black rounded-lg p-5 ${color} ${className}`}>
+                        {text}
+                    </button>
+                </a>
+            ) : (
+                <Link href={link} className='m-5'>
+                    <button style={{ ...neonShadow }} className={`text-black rounded-lg p-5 ${color} ${className}`}>
+                        {text}
+                    </button>
+                </Link>
+            )}
+        </>
+    );
 }
