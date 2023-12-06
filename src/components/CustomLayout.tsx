@@ -25,7 +25,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
                         <div className='flex m-auto p-8 justify-around '>
                             <Link href='/about' legacyBehavior passHref>
                                 <a
-                                    className={`text-2xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                                     style={router.pathname === '/about' ? neonPurple : neonBlanc}
                                 >
                                     About
@@ -33,7 +33,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
                             </Link>
                             <Link href='/posters' legacyBehavior passHref>
                                 <a
-                                    className={`text-2xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                                     style={router.pathname === '/posters' ? neonPurple : neonBlanc}
                                 >
                                     Posters
@@ -41,7 +41,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
                             </Link>
                             <Link href='/' legacyBehavior passHref>
                                 <a
-                                    className={`text-4xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                                    className={`text-3xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                                     style={router.pathname === '/' ? neonPurple : neonBlanc}
                                 >
                                     Matthys.Dev
@@ -49,7 +49,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
                             </Link>
                             <Link href='/video' legacyBehavior passHref>
                                 <a
-                                    className={`text-2xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                                     style={router.pathname === '/video' ? neonPurple : neonBlanc}
                                 >
                                     Video
@@ -57,7 +57,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
                             </Link>
                             <Link href='/contact' legacyBehavior passHref>
                                 <a
-                                    className={`text-2xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                                     style={router.pathname === '/contact' ? neonPurple : neonBlanc}
                                 >
                                     Contact
