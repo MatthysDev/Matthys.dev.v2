@@ -1,7 +1,10 @@
-import { neonBlanc } from '@/components/neonStyles'
+import { neonBlanc, neonPurple } from '@/components/neonStyles'
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { randomNeonColor } from '@/utils/randomNeonColor'
+import ImageGridContainer from '@/components/ImageGridContainer'
+import PosterGridHero from '@/components/PosterGridHero'
+import CustomLayout from '@/components/CustomLayout'
 
 type Props = {}
 
@@ -11,49 +14,25 @@ export default function posters({ }: Props) {
         randomNeonColor('imageNeon');
     }, []);
     return (
-        <main className="relative flex min-h-screen flex-col items-center p-12 text-white">
-            <h1 className="text-4xl font-bold text-white relative">
-                <div style={neonBlanc}>Posters</div>
-            </h1>
-            <div className='w-screen my-auto'>
-                <div className='flex w-3/4 m-auto '>
-                    <h1 className="text-4xl font-bold text-white m-auto w-1/3">
-                        <div style={neonBlanc}>Posters</div>
-                    </h1>
-                    <div className='grid grid-cols-3 gap-8'>
-                        <div className='flex flex-col gap-8'>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
+        <CustomLayout withMenu>
+            <main className="relative flex flex-col items-center p-12 text-white my-8">
+                <div className='w-screen my-auto'>
+                    <div className='flex w-3/4 m-auto '>
+                        <div className=' w-2/5 text-left mx-24'>
+                            <h1 className="text-4xl font-bold text-white m-auto my-12">
+                                <div style={neonBlanc}>Human animals collection</div>
+                            </h1>
+                            <div className='text-xl'>
+                                Explore the humor of AI with my <span style={neonPurple} className='text-purple-300'>funny animal</span> poster collection.
                             </div>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
+                            <div className='text-xl my-4'>
+                                Creative, fun, and sure to <span style={neonPurple} className='text-purple-300'>bring a smile</span> to any space!
                             </div>
                         </div>
-                        <div className='flex flex-col justify-center gap-8'>
-                            <div className='imageNeon relative w-36 h-48 shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                            <div className='imageNeon relative w-36 h-48 shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                        </div>
-                        <div className='flex flex-col gap-8'>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                            <div className='imageNeon relative w-36 h-48 m-auto shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300'>
-                                <Image src={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt={'requin'} fill object-fit='cover' className='rounded-lg' />
-                            </div>
-                        </div>
+                        <PosterGridHero url1={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt1={'requin'} url2={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/bad-monkey.png'} alt2={'bad-monkey'} url3={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/fish.png'} alt3={'fish'} url4={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/fox.png'} alt4={'fox'} url5={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/good-monkey.png'} alt5={'good-monkey'} url6={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/skeleton.png'} alt6={'skeleton'} url7={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/snake.png'} alt7={'snake'} url8={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/frog.png'} alt8={'frog'} />
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </CustomLayout >
     )
 }
