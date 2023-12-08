@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <CustomLayout withMenu>
-      <div className="flex flex-col items-center p-12 text-white">
+      <div className="flex flex-col items-center p-0 md:p-12 text-white">
         <Hero />
         <div className='flex mt-24'>
           <Button link={'/posters'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} />

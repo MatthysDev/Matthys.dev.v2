@@ -20,7 +20,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
         <>
             <div className='absolute top-0 left-0 bottom-0 right-0 bg-[url("/grid.svg")] opacity-30 z-0'></div>
             <div className='w-full m-auto h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black'>
-                <div className='w-2/3 m-auto relative'>
+                <div className='w-5/6 md:w-2/3 m-auto relative'>
                     {withMenu && (
                         <div className='flex m-auto p-8 justify-around '>
                             <Link href='/about' legacyBehavior passHref>
