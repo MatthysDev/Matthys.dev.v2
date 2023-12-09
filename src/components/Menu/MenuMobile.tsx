@@ -40,13 +40,15 @@ export default function MenuMobile({ }: Props) {
     };
     return (
         <>
-            <div className='mx-4 md:hidden pt-4 flex justify-between text-white cursor-pointer ' >
-                <a
-                    className={`text-xl ml-1 mt-4 font-bold text-white my-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/about' ? neonPurple : neonBlanc}
-                >
-                    Matthys.dev
-                </a>
+            <div className='mx-4 md:hidden pt-4 flex justify-between text-white cursor-pointer '>
+                <Link href='/' passHref legacyBehavior>
+                    <a
+                        className={` text-xl ml-1 mt-4 font-bold text-white my-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                        style={router.pathname === '/' ? neonPurple : neonBlanc}
+                    >
+                        Matthys.dev
+                    </a>
+                </Link>
                 <button
                     className="bg-gradient-to-tr from-gray-800 to-slate-950 fixed top-6 right-6 z-20 flex flex-col h-12 w-12 border border-white rounded justify-center items-center group"
                     onClick={() => {
