@@ -50,7 +50,7 @@ export default function MenuMobile({ }: Props) {
                     </a>
                 </Link>
                 <button
-                    className="bg-gradient-to-tr from-gray-800 to-slate-950 fixed top-6 right-6 z-20 flex flex-col h-12 w-12 border border-white rounded justify-center items-center group"
+                    className="bg-gradient-to-tr from-gray-800 to-slate-950 fixed top-6 right-6 z-30 flex flex-col h-12 w-12 border border-white rounded justify-center items-center group"
                     onClick={() => {
                         setIsOpen(!isOpen);
                         toggleMobileMenu();
@@ -78,7 +78,7 @@ export default function MenuMobile({ }: Props) {
                 initial="closed"
                 animate={isMobileMenuOpen ? 'open' : 'closed'}
                 variants={menuVariants}
-                className={`fixed top-0 left-0 w-full  z-10`}
+                className={`fixed top-0 left-0 w-full  z-20`}
             >
                 <div className='mx-4 p-4 flex flex-col gap-4 mt-4 bg-gradient-to-tr from-gray-800 to-slate-950 rounded-lg shadow-[0px_0px_7px_1px_#fff] z-20 position'>
                     <Link href='/about' passHref legacyBehavior>
