@@ -15,10 +15,10 @@ export default function posters({ }: Props) {
     }, []);
     return (
         <CustomLayout withMenu>
-            <main className="relative flex flex-col items-center p-12 text-white my-8">
+            <main className="relative flex flex-col items-center p-0 md:p-12 text-white md:my-8">
                 <div className='w-screen my-auto'>
-                    <div className='flex w-3/4 m-auto '>
-                        <div className=' w-2/5 text-left mx-24'>
+                    <div className='flex flex-col md:flex-row w-5/6 md:w-3/4 m-auto '>
+                        <div className='w-5/6 md:w-2/5 text-left mx-0 md:mx-24'>
                             <h1 className="text-4xl font-bold text-white m-auto my-12">
                                 <div style={neonBlanc}>Human animals collection</div>
                             </h1>
