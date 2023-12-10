@@ -31,8 +31,11 @@ const ImageGridContainer: React.FC<Props> = ({ url, alt, selectedId, setSelected
                 {isSelected && (
                     <motion.div
                         layoutId={item.id.toString()}
+                        initial={{ opacity: 0 }}
                         exit={{ opacity: 0 }}
-                        className='fixed md:absolute shadow-[0px_0px_20px_2px_#fff] top-1/4 md:top-0 left-0 right-0 w-4/5 md:w-1/2 md:h-full h-1/2 p-4 flex flex-col gap-4 bg-gradient-to-tr from-gray-800 to-slate-950 rounded-lg z-10 mx-auto md:mx-0'
+                        transition={{ layout: { duration: 0.1 }, opacity: { duration: 0.3 } }}
+                        animate={{ opacity: 1, transition: { delay: 0.32 } }}
+                        className='fixed md:absolute shadow-[0px_0px_20px_2px_#fff] top-1/4 md:top-0 left-0 right-0 w-4/5 md:w-1/2 md:h-full h-1/2 p-4 flex flex-col gap-4 bg-gradient-to-tr from-gray-800 to-slate-950 rounded-lg z-10 mx-auto md:mx-0 '
                     >
                         <Image src={url} alt={alt} fill objectFit='cover' className='rounded-lg z-10 w-full h-2/3' />
                         <motion.div className='flex justify-end fill-white z-20 text-right'>
