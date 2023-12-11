@@ -7,7 +7,7 @@ type Props = {}
 
 export default function Hero({ }: Props) {
     return (
-        <div className='flex flex-col md:flex-row md:mt-48 mb-12 gap-4'>
+        <div className='flex flex-col md:flex-row mb-12 gap-4'>
             <div className='relative w-40 h-40  m-auto my-12 md:m-auto'>
                 <Image src={'/me.png'} alt={'Matthys Ducrocq'} fill className='rounded-full shadow-[0px_0px_20px_2px_#fff]' />
             </div>
