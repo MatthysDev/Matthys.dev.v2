@@ -28,7 +28,9 @@ export default function Video() {
                         What‘s next ?
                     </div>
                 </div>
-                <div className='w-1/2'></div>
+                <div className='w-1/2'>
+                    <p>This is my video section</p>
+                </div>
             </div>
         </CustomLayout>
     );
