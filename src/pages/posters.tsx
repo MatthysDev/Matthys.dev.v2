@@ -1,14 +1,18 @@
 import { neonBlanc, neonPurple } from '@/components/neonStyles'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { randomNeonColor } from '@/utils/randomNeonColor'
 import ImageGridContainer from '@/components/ImageGridContainer'
 import PosterGridHero from '@/components/PosterGridHero'
 import CustomLayout from '@/components/CustomLayout'
+import CollectionPreview from '@/components/Posters/CollectionPreview'
+import { posterApi } from '@/components/Posters/posterCollectionApi'
 
 type Props = {}
 
 export default function posters({ }: Props) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [selectedId, setSelectedId] = useState<number | null>(null);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         randomNeonColor('imageNeon');
@@ -30,6 +34,13 @@ export default function posters({ }: Props) {
                             </div>
                         </div>
                         <PosterGridHero url1={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/shark.png'} alt1={'requin'} url2={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/bad-monkey.png'} alt2={'bad-monkey'} url3={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/fish.png'} alt3={'fish'} url4={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/fox.png'} alt4={'fox'} url5={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/good-monkey.png'} alt5={'good-monkey'} url6={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/skeleton.png'} alt6={'skeleton'} url7={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/snake.png'} alt7={'snake'} url8={'https://raw.githubusercontent.com/MatthysDev/Matthys.Dev/main/src/images/posters/frog.png'} alt8={'frog'} />
+                    </div>
+                    <div className='w-2/3 m-auto my-32'>
+                        <CollectionPreview
+                            selectedId={selectedId}
+                            setSelectedId={setSelectedId}
+                            collection={posterApi}
+                        />
                     </div>
                 </div>
             </main>
