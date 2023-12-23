@@ -22,6 +22,7 @@ export default function Video() {
                                 objectFit='cover'
                                 className='rounded-lg'
                                 fill
+                                loading='lazy'
                             />
                         </div>
                     ))}
