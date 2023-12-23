@@ -6,6 +6,7 @@ const images = [
     { src: '/air2s.jpg', alt: 'Air 2s' },
     { src: '/iphone.jpg', alt: 'iPhone' },
     { src: '/om5.jpg', alt: 'OM5' },
+    { src: '/gopro.jpg', alt: 'Go Pro Hero 12' },
 ];
 
 export default function Video() {
@@ -24,9 +25,6 @@ export default function Video() {
                             />
                         </div>
                     ))}
-                    <div className='h-64 bg-white rounded-lg flex items-center justify-center text-2xl font-bold'>
-                        What‘s next ?
-                    </div>
                 </div>
                 <div className='w-1/2'>
                     <p>This is my video section</p>
