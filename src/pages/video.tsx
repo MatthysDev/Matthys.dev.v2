@@ -36,7 +36,9 @@ export default function Video() {
                     {/* <p className='text-white text-lg'>So, grab some popcorn, subscribe to my channel, and let's embark on this filmmaking adventure together. I can't wait to connect with you and build a community where we can learn and grow together!</p> */}
                     <p className='text-white text-lg'>So be ready embark on this filmmaking adventure together. I can't wait to connect with you and build a community where we can learn and grow together!</p>
                 </div>
-
+            </div>
+            <div>
+                <div className='text-2xl text-white my-24 font-bold'>Some of my videos</div>
             </div>
         </CustomLayout>
     );
