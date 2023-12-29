@@ -9,7 +9,7 @@ export default function about({ }: Props) {
     return (
         <CustomLayout>
             <div className='text-2xl text-white'>
-                Some pictures of me at different places
+                Some pictures of me at different places around the world
             </div>
             <div className='flex gap-4 w-full'>
                 <Image src={'/me/me-catalin.jpg'} alt={'Me and Catalin Miron at App.js 2023'} width={400} height={400} className='rounded-lg shadow-[0px_0px_20px_2px_#fff] my-12' />
