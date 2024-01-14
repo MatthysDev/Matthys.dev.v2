@@ -29,12 +29,12 @@ export default function Video() {
                 </div>
                 <div className='w-1/2 flex flex-col gap-4'>
                     <p className='text-white text-2xl font-bold'>Welcome to My Video Section</p>
-                    <p className='text-white text-lg'>Hey there! I'm passionate about creating videos, and I'm excited to share my journey with you.</p>
-                    <p className='text-white text-lg'>I recently got a new camera and I'm in the process of learning how to use it. The world of filmmaking and video editing is both thrilling and challenging, and I can't wait to explore it further.</p>
-                    <p className='text-white text-lg'>On this channel, you'll find a mix of behind-the-scenes looks at my video-making process, tips and tricks I discover along the way, and, of course, the final results of my creative endeavors.</p>
-                    <p className='text-white text-lg'>While I may not be an expert just yet, I believe that the joy is in the journey. I'll be documenting my progress and sharing the highs and lows of my filmmaking experience, hoping it inspires fellow enthusiasts and beginners alike.</p>
+                    <p className='text-white text-lg'>Hey there! I‘m passionate about creating videos, and I‘m excited to share my journey with you.</p>
+                    <p className='text-white text-lg'>I recently got a new camera and I‘m in the process of learning how to use it. The world of filmmaking and video editing is both thrilling and challenging, and I can‘t wait to explore it further.</p>
+                    <p className='text-white text-lg'>On this channel, you‘ll find a mix of behind-the-scenes looks at my video-making process, tips and tricks I discover along the way, and, of course, the final results of my creative endeavors.</p>
+                    <p className='text-white text-lg'>While I may not be an expert just yet, I believe that the joy is in the journey. I‘ll be documenting my progress and sharing the highs and lows of my filmmaking experience, hoping it inspires fellow enthusiasts and beginners alike.</p>
                     {/* <p className='text-white text-lg'>So, grab some popcorn, subscribe to my channel, and let's embark on this filmmaking adventure together. I can't wait to connect with you and build a community where we can learn and grow together!</p> */}
-                    <p className='text-white text-lg'>So be ready embark on this filmmaking adventure together. I can't wait to connect with you and build a community where we can learn and grow together!</p>
+                    <p className='text-white text-lg'>So be ready embark on this filmmaking adventure together. I can‘t wait to connect with you and build a community where we can learn and grow together!</p>
                 </div>
             </div>
             <div>
