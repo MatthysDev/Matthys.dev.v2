@@ -12,7 +12,7 @@ export default function Home() {
       <div className="flex flex-col items-center p-0 md:p-12 text-white">
         <Hero />
         <div className='flex mt-0 mb-2 md:mt-24'>
-          <Button link={'/posters'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} />
+          <Button link={'/about'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} />
           <Button link={'https://airtable.com/appOrrPF35ppPjTKx/shrZLcDgGq0Kb6soN?backgroundColor=purple'} text={'Contact-me'} color={'bg-purple-300'} isExternal neonColor={palette.purple300} />
         </div>
       </div>
