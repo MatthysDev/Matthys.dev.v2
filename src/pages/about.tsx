@@ -19,7 +19,7 @@ export default function About() {
     return (
         <CustomLayout>
             <div className='text-2xl text-white font-bold'>
-                Some pictures of me at different places around the world
+                Some pictures of me at different places around the world.
             </div>
             <div className='flex gap-12 w-full'>
                 {images.map((imageData, index) => (
