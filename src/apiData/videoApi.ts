@@ -16,4 +16,5 @@ export const videoApi = [
 export const inspirationalVideos = [
     { id: 'ZwYy4scOJi8', title: 'DO MORE', author: 'Casey Neistat' },
     { id: 'jG7dSXcfVqE', title: 'DO WHAT YOU CAN‘T', author: 'Casey Neistat' },
+    { id: 'iMHFLKc5AFE', title: 'I AM BACK.', author: 'Peter McKinnon' },
 ];
