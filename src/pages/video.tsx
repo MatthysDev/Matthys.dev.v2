@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import InspirationalVideos from '@/components/InspirationalVideos';
 import { inspirationalVideos } from '@/apiData/videoApi';
+import Head from 'next/head';
 
 const images = [
     { src: '/air2s.jpg', alt: 'Air 2s' },
@@ -14,6 +15,9 @@ const images = [
 export default function Video() {
     return (
         <CustomLayout withMenu>
+            <Head>
+                <title>Matthys.dev | Vidéo</title> {/* Setting the title metadata */}
+            </Head>
             <div className='flex gap-12 mt-24 mb-32 2xl:my-32 '>
                 <div className='w-full md:w-1/2'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
