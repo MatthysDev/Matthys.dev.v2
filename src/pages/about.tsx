@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import CustomLayout from '@/components/CustomLayout';
-import { neonBlanc } from '@/components/neonStyles';
+import { Clients } from '@/components/Clients';
+import { clients } from '@/apiData/clients';
 
 type ImageData = {
     img: string;
@@ -18,7 +19,7 @@ const images: ImageData[] = [
 export default function About() {
     return (
         <CustomLayout>
-            <div className='text-2xl text-white font-bold'>
+            <div className='mt-32 text-2xl text-white font-bold'>
                 Some pictures of me at different places around the world.
             </div>
             <div className='flex gap-12 w-full'>
@@ -38,6 +39,10 @@ export default function About() {
                     </div>
                 ))}
             </div>
+            <div className='text-3xl text-white font-bold m-auto text-center mt-32'>
+                I worked with these companies
+            </div>
+            <Clients clients={clients} />
         </CustomLayout>
     );
 }
