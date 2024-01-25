@@ -16,7 +16,7 @@ export interface ClientsListHomepageProps {
 
 export function Clients(data: ClientsListHomepageProps) {
     return (
-        <div className="my-24 grid grid-cols-3 content-around gap-4 md:grid-cols-5">
+        <div className="my-24 flex content-around gap-4 flex-col md:flex-row m-auto justify-center">
             {data.clients.map(
                 (client: ClientProps) =>
                     client.data && (
