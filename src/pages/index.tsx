@@ -6,6 +6,7 @@ import { palette } from '@/utils/palette';
 import CustomLayout from '@/components/CustomLayout';
 import { Clients } from '@/components/Clients';
 import { clients } from '@/apiData/clients';
+import VideoHero from '@/components/video/VideoHero';
 
 export default function Home() {
 
@@ -20,8 +21,11 @@ export default function Home() {
           <Button link={'https://airtable.com/appOrrPF35ppPjTKx/shrZLcDgGq0Kb6soN?backgroundColor=purple'} text={'Contact-me'} color={'bg-purple-300'} isExternal neonColor={palette.purple300} />
         </div>
       </div>
-      <div className='mt-24 text-xl font-bold text-center text-white md:text-4xl'>I work with them</div>
-      <Clients clients={clients} />
+      <div className='mt-12 mb-36 text-xl font-bold text-center text-white md:text-4xl '>
+        I work with them
+        <Clients clients={clients} />
+      </div>
+      <VideoHero />
     </CustomLayout>
   )
 }
