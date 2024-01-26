@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 type Props = {};
 
 const SkeletonLoader: React.FC = () => (
-    <div className="flex flex-col items-center animate-pulse h-[1200px] opacity-50 w-3/4 mx-auto my-12 rounded-lg bg-gray-300">
-        <div className="bg-gray-500 h-4 w-32 mb-4 mt-24 rounded-full "></div>
-        <p className="text-gray-500 font-bold text-3xl">Loading...</p>
+    <div className="flex flex-col items-center animate-pulse h-[1200px] opacity-50 w-3/4 mx-auto my-12 rounded-lg">
+        <p className="text-white font-bold text-3xl animate-pulse">Loading...</p>
     </div>
 );
 
