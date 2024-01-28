@@ -48,6 +48,7 @@ export default function Video() {
             <div>
                 <div className='text-3xl text-white pt-2 mb-12 font-bold'>Some of my inspirations</div>
                 <InspirationalVideos videos={inspirationalVideos} />
+                <div className='text-2xl text-white pt-2 mb-12 font-bold'>What I learned from these videos</div>
             </div>
         </CustomLayout>
     );
