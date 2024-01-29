@@ -48,10 +48,11 @@ export default function Video() {
             <div>
                 <div className='text-3xl text-white pt-2 mb-12 font-bold'>Some of my inspirations</div>
                 <InspirationalVideos videos={inspirationalVideos} />
-                <div className='text-2xl text-white pt-2 mb-12 font-bold'>What I learned from these videos</div>
-                <div className='text-white text-lg 2xl:text-2xl mb-12'>
-                    If you are doing something like a lot of people, you are doing it wrong. You need to do it differently. You need to do it in a way that is unique to you.
+                <div className='text-2xl text-white pt-2 mb-4 font-bold'>What I learned from these videos</div>
+                <div className='text-white text-lg mb-12'>
+                    - If you are doing something like a lot of people, you are doing it wrong. You need to do it differently. You need to do it in a way that is unique to you.
                 </div>
+            </div>
         </CustomLayout>
     );
 }
