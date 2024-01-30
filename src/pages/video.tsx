@@ -52,6 +52,9 @@ export default function Video() {
                 <div className='text-white text-lg mb-12'>
                     - If you are doing something like a lot of people, you are doing it wrong. You need to do it differently. You need to do it in a way that is unique to you.
                 </div>
+                <div className='text-white text-lg mb-12'>
+                    - The best way to learn is to do. You can watch all the videos you want, but you won't learn anything until you actually do it.
+                </div>
             </div>
         </CustomLayout>
     );
