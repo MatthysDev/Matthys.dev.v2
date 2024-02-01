@@ -3,55 +3,17 @@ import React, { useState } from 'react';
 import ImageGridContainer from '@/components/ImageGridContainer';
 
 type Props = {
-    url1: string;
-    alt1: string;
-    url2: string;
-    alt2: string;
-    url3: string;
-    alt3: string;
-    url4: string;
-    alt4: string;
-    url5: string;
-    alt5: string;
-    url6: string;
-    alt6: string;
-    url7: string;
-    alt7: string;
-    url8: string;
-    alt8: string;
+    posterData: {
+        id: number;
+        title: string;
+        subtitle: string;
+        url: string;
+        alt: string;
+    }[];
 };
 
-export default function PosterGridHero({
-    url1,
-    alt1,
-    url2,
-    alt2,
-    url3,
-    alt3,
-    url4,
-    alt4,
-    url5,
-    alt5,
-    url6,
-    alt6,
-    url7,
-    alt7,
-    url8,
-    alt8,
-}: Props) {
+export default function PosterGridHero({ posterData }: Props) {
     const [selectedId, setSelectedId] = useState<number | null>(null);
-
-    const posterData = [
-        { id: 1, title: 'Title 1', subtitle: 'Subtitle 1', url: url1, alt: alt1 },
-        { id: 2, title: 'Title 2', subtitle: 'Subtitle 2', url: url2, alt: alt2 },
-        { id: 3, title: 'Title 3', subtitle: 'Subtitle 3', url: url3, alt: alt3 },
-        { id: 4, title: 'Title 4', subtitle: 'Subtitle 4', url: url4, alt: alt4 },
-        { id: 5, title: 'Title 5', subtitle: 'Subtitle 5', url: url5, alt: alt5 },
-        { id: 6, title: 'Title 6', subtitle: 'Subtitle 6', url: url6, alt: alt6 },
-        { id: 7, title: 'Title 7', subtitle: 'Subtitle 7', url: url7, alt: alt7 },
-        { id: 8, title: 'Title 8', subtitle: 'Subtitle 8', url: url8, alt: alt8 },
-    ];
-
     return (
         <div className='grid grid-cols-2 md:grid-cols-3 gap-8 mx-auto mt-12 mb-24 md:my-0'>
             <div className='flex flex-col gap-8'>
