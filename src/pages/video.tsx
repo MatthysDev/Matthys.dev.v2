@@ -6,10 +6,10 @@ import { inspirationalVideos } from '@/apiData/videoApi';
 import Head from 'next/head';
 
 const images = [
-    { src: '/air2s.jpg', alt: 'Air 2s' },
-    { src: '/iphone.jpg', alt: 'iPhone' },
-    { src: '/om5.jpg', alt: 'OM5' },
-    { src: '/gopro.jpg', alt: 'Go Pro Hero 12' },
+    { src: '/video/air2s.jpg', alt: 'Air 2s' },
+    { src: '/video/iphone.jpg', alt: 'iPhone' },
+    { src: '/video/om5.jpg', alt: 'OM5' },
+    { src: '/video/gopro.jpg', alt: 'Go Pro Hero 12' },
 ];
 
 export default function Video() {

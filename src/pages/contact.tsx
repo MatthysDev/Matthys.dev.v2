@@ -1,4 +1,5 @@
 import CustomLayout from '@/components/CustomLayout';
+import Head from 'next/head';
 import React, { useState } from 'react';
 
 type Props = {};
@@ -19,6 +20,9 @@ export default function Contact({ }: Props) {
 
     return (
         <CustomLayout withMenu>
+            <Head>
+                <title>Matthys.dev | Contact</title> {/* Setting the title metadata */}
+            </Head>
             {isLoading && <SkeletonLoader />}
 
             <iframe

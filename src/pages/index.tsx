@@ -7,11 +7,15 @@ import CustomLayout from '@/components/CustomLayout';
 import { Clients } from '@/components/Clients';
 import { clients } from '@/apiData/clients';
 import VideoHero from '@/components/video/VideoHero';
+import Head from 'next/head';
 
 export default function Home() {
 
   return (
     <CustomLayout withMenu>
+      <Head>
+        <title>Matthys.dev</title> {/* Setting the title metadata */}
+      </Head>
       <div className="flex flex-col items-center p-0 md:p-12 text-white">
         <div className='mt-24'>
           <Hero />

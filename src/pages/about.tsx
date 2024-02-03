@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CustomLayout from '@/components/CustomLayout';
 import { Clients } from '@/components/Clients';
 import { clients } from '@/apiData/clients';
+import Head from 'next/head';
 
 type ImageData = {
     img: string;
@@ -19,6 +20,9 @@ const images: ImageData[] = [
 export default function About() {
     return (
         <CustomLayout>
+            <Head>
+                <title>Matthys.dev | About me</title> {/* Setting the title metadata */}
+            </Head>
             <div className='mt-32 text-2xl text-white font-bold'>
                 Some pictures of me at different places around the world.
             </div>
