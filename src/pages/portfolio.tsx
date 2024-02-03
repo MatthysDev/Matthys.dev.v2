@@ -21,7 +21,7 @@ export default function Portfolio({ projectApi }: Props) {
             </Head>
             <h1>Portfolio</h1>
             <ul>
-                {projectApi.map((project, index) => (
+                {/* {projectApi.map((project, index) => (
                     <li key={index}>
                         <h2>{project.name}</h2>
                         <p>{project.description}</p>
@@ -29,7 +29,7 @@ export default function Portfolio({ projectApi }: Props) {
                             <img src={project.imageUrl} alt={project.name} />
                         </a>
                     </li>
-                ))}
+                ))} */}
             </ul>
         </CustomLayout>
     )
