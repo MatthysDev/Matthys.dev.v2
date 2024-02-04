@@ -6,7 +6,7 @@ type Props = {};
 
 const SkeletonLoader: React.FC = () => (
     <div className="flex flex-col items-center animate-pulse h-[1200px] opacity-50 w-3/4 mx-auto my-12 rounded-lg">
-        <p className="text-white font-bold text-3xl animate-pulse">Loading...</p>
+        <p className=" font-bold text-3xl animate-pulse">Loading...</p>
     </div>
 );
 

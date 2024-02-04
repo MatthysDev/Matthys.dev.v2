@@ -23,7 +23,7 @@ export default function About() {
             <Head>
                 <title>Matthys.dev | About me</title> {/* Setting the title metadata */}
             </Head>
-            <div className='mt-32 text-2xl text-white font-bold'>
+            <div className='mt-32 text-2xl font-bold'>
                 Some pictures of me at different places around the world.
             </div>
             <div className='flex gap-12 w-full'>
@@ -39,11 +39,11 @@ export default function About() {
                                 className='rounded-lg'
                             />
                         </div>
-                        <p className='mr-4 text-white font-semibold'>{imageData.description}</p>
+                        <p className='mr-4 font-semibold'>{imageData.description}</p>
                     </div>
                 ))}
             </div>
-            <div className='text-3xl text-white font-bold m-auto text-center mt-32'>
+            <div className='text-3xl font-bold m-auto text-center mt-32'>
                 I worked with these companies
             </div>
             <Clients clients={clients} />

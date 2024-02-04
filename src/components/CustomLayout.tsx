@@ -11,7 +11,7 @@ const CustomLayout = ({ children, withMenu }: Props) => {
     return (
         <>
             <div className='fixed top-0 left-0 bottom-0 right-0 bg-[url("/grid.svg")] opacity-30 z-0'></div>
-            <div className='w-full m-auto min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black'>
+            <div className='w-full text-white m-auto min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black'>
                 <div className='relative'>
                     {/* Corrected the class name for "md:hidden" */}
                     <div className='md:hidden'><MenuMobile /></div>

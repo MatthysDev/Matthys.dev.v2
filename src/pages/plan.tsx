@@ -10,7 +10,7 @@ export default function plan({ }: Props) {
             <Head>
                 <title>Matthys.dev | My plan</title> {/* Setting the title metadata */}
             </Head>
-            <div className='text-white text-xl'>
+            <div className='text-xl'>
                 <div className='text-3xl my-4 font-semibold'>2024 Plan</div>
                 <div>Make a lot of tiktok videos</div>
                 <div>Make a lot of followers</div>

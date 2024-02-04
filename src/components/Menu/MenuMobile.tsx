@@ -40,10 +40,10 @@ export default function MenuMobile({ }: Props) {
     };
     return (
         <>
-            <div className='mx-4 md:hidden pt-4 flex justify-between text-white cursor-pointer '>
+            <div className='mx-4 md:hidden pt-4 flex justify-between  cursor-pointer '>
                 <Link href='/' passHref legacyBehavior>
                     <a
-                        className={` text-xl ml-1 mt-4 font-bold text-white my-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                        className={` text-xl ml-1 mt-4 font-bold  my-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                         style={router.pathname === '/' ? neonPurple : neonBlanc}
                     >
                         Matthys.dev
@@ -83,7 +83,7 @@ export default function MenuMobile({ }: Props) {
                 <div className='mx-4 p-4 flex flex-col gap-4 mt-4 bg-gradient-to-tr from-gray-800 to-slate-950 rounded-lg shadow-[0px_0px_7px_1px_#fff] z-20 position'>
                     <Link href='/about' passHref legacyBehavior>
                         <a
-                            className={`text-xl font-bold text-white relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                            className={`text-xl font-bold  relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                             style={router.pathname === '/about' ? neonPurple : neonBlanc}
                         >
                             About
@@ -91,7 +91,7 @@ export default function MenuMobile({ }: Props) {
                     </Link>
                     <Link href='/posters' legacyBehavior passHref>
                         <a
-                            className={`text-xl font-bold text-white relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                            className={`text-xl font-bold  relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                             style={router.pathname === '/posters' ? neonPurple : neonBlanc}
                         >
                             Posters
@@ -99,7 +99,7 @@ export default function MenuMobile({ }: Props) {
                     </Link>
                     <Link href='/video' legacyBehavior passHref>
                         <a
-                            className={`text-xl font-bold text-white relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                            className={`text-xl font-bold  relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                             style={router.pathname === '/video' ? neonPurple : neonBlanc}
                         >
                             Video
@@ -107,7 +107,7 @@ export default function MenuMobile({ }: Props) {
                     </Link>
                     <Link href='/contact' legacyBehavior passHref>
                         <a
-                            className={`text-xl font-bold text-white relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
+                            className={`text-xl font-bold  relative ${router.pathname === '/' ? 'text-purple-300' : ''}`}
                             style={router.pathname === '/contact' ? neonPurple : neonBlanc}
                         >
                             Contact
