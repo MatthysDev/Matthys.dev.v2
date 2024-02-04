@@ -16,6 +16,7 @@ export default function plan({ }: Props) {
                 <div>Make a lot of followers</div>
                 <div>Do 1 push per day</div>
                 <div>Make money !</div>
+                <div>Make 500 followers on Twitter</div>
             </div>
         </CustomLayout>
     )
