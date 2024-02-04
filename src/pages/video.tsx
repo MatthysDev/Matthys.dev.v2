@@ -1,9 +1,9 @@
 import CustomLayout from '@/components/CustomLayout';
 import React from 'react';
 import Image from 'next/image';
-import InspirationalVideos from '@/components/InspirationalVideos';
 import { inspirationalVideos } from '@/apiData/videoApi';
 import Head from 'next/head';
+import VideosCards from '@/components/VideosCards';
 
 const images = [
     { src: '/video/air2s.jpg', alt: 'Air 2s' },
@@ -47,7 +47,7 @@ export default function Video() {
             </div>
             <div>
                 <div className='text-3xl pt-2 mb-12 font-bold'>Some of my inspirations</div>
-                <InspirationalVideos videos={inspirationalVideos} />
+                <VideosCards videos={inspirationalVideos} />
                 <div className='text-2xl pt-2 mb-4 font-bold'>What I learned from these videos</div>
                 <div className='text-lg mb-12'>
                     - If you are doing something like a lot of people, you are doing it wrong. You need to do it differently. You need to do it in a way that is unique to you.

@@ -4,14 +4,14 @@ import React from 'react';
 type VideoData = {
     id: string;
     title: string;
-    author: string;
+    author?: string;
 };
 
-type InspirationalVideosProps = {
+type VideosProps = {
     videos: VideoData[];
 };
 
-const InspirationalVideos: React.FC<InspirationalVideosProps> = ({ videos }) => {
+const VideosCards: React.FC<VideosProps> = ({ videos }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
             {videos.map((video, index) => (
@@ -23,10 +23,12 @@ const InspirationalVideos: React.FC<InspirationalVideosProps> = ({ videos }) => 
                             alt={video.title}
                         />
                         <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{video.title}</div>
-                            <p className="text-gray-700 text-base">
-                                by {video.author}
-                            </p>
+                            <div className="font-bold text-xl mb-2 text-black">{video.title}</div>
+                            {video.author &&
+                                <p className="text-gray-700 text-base">
+                                    by {video.author}
+                                </p>
+                            }
                         </div>
                     </div>
                 </a>
@@ -35,4 +37,4 @@ const InspirationalVideos: React.FC<InspirationalVideosProps> = ({ videos }) => 
     );
 };
 
-export default InspirationalVideos;
+export default VideosCards;

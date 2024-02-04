@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <CustomLayout withMenu>
       <Head>
-        <title>Matthys.dev</title> {/* Setting the title metadata */}
+        <title>Matthys.dev</title>
       </Head>
       <div className="flex flex-col items-center p-0 md:p-12 ">
         <div className='mt-24'>
           <Hero />
         </div>
         <div className='flex mt-0 mb-2'>
-          <Button link={'/about'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} />
-          <Button link={'https://airtable.com/appOrrPF35ppPjTKx/shrZLcDgGq0Kb6soN?backgroundColor=purple'} text={'Contact-me'} color={'bg-purple-300'} isExternal neonColor={palette.purple300} />
+          <Button link={'/about'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} className='font-semibold' />
+          <Button link={'https://airtable.com/appOrrPF35ppPjTKx/shrZLcDgGq0Kb6soN?backgroundColor=purple'} text={'Contact-me'} color={'bg-purple-300'} isExternal neonColor={palette.purple300} className={'font-semibold'} />
         </div>
       </div>
       <div className='mt-12 mb-36 text-xl font-bold text-center md:text-4xl '>
