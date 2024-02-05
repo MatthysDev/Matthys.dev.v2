@@ -16,12 +16,12 @@ export default function posters({ }: Props) {
     return (
         <CustomLayout withMenu>
             <Head>
-                <title>Matthys.dev | Posters</title> {/* Setting the title metadata */}
+                <title>Matthys.dev | Posters</title>
             </Head>
             <main className="relative flex flex-col items-center p-0 md:p-12 md:my-8">
                 <div className='w-screen my-auto'>
                     <div className='flex flex-col md:flex-row w-5/6 md:w-3/4 m-auto '>
-                        <div className='w-5/6 md:w-2/5 text-left mx-0 md:mx-24'>
+                        <div className='w-5/6 md:w-2/5 text-left mx-0 md:mx-24 text-black dark:text-white'>
                             <h1 className="text-4xl font-bold m-auto my-12">
                                 <div style={neonBlanc}>Human animals collection</div>
                             </h1>
