@@ -29,7 +29,7 @@ export default function Home() {
         I work with them
         <Clients clients={clients} />
       </div>
-      <VideoHero />
+      {/* <VideoHero /> */}
     </CustomLayout>
   )
 }
