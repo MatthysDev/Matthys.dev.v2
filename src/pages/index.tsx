@@ -1,6 +1,6 @@
 'use client'
 import { neonBlanc } from '@/components/neonStyles';
-import Button from '@/components/Button';
+import Button from '@/components/Buttons/Button';
 import Hero from '@/components/Hero';
 import { palette } from '@/utils/palette';
 import CustomLayout from '@/components/CustomLayout';
