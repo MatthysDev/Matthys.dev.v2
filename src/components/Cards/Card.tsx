@@ -1,11 +1,11 @@
 import React from 'react'
 
-type Props = {
+type CardProps = {
   children: React.ReactNode
 }
 
-export default function Card({ children }: Props) {
+export default function Card({ children }: CardProps) {
   return (
-    <div className='bg-slate-100 p-24 rounded-md shadow-md'>{children}</div>
+    <div className='bg-slate-50 p-24 rounded-md shadow-md'>{children}</div>
   )
 }
