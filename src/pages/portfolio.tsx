@@ -4,17 +4,6 @@ import React from 'react'
 import { projects } from '@/apiData/projects'
 import Card from '@/components/Cards/Card'
 
-type Props = {
-    projectApi: Project[]
-}
-
-type Project = {
-    name: string
-    description: string
-    url: string
-    imageUrl: string
-}
-
 export default function Portfolio() {
     return (
         <CustomLayout>
