@@ -10,19 +10,23 @@ export default function Portfolio() {
             <Head>
                 <title>Matthys.dev | Portfolio</title> {/* Setting the title metadata */}
             </Head>
-            <ul>
+            <div className='grid grid-cols-3'>
                 {projects.map((project, index) => (
-                    <Card>
-                        <li key={index}>
-                            <h2>{project.name}</h2>
+                    // eslint-disable-next-line react/jsx-key
+                    <Card withNeon>
+                        <div className='flex flex-col gap-4 p-8'>
+                            <div className='flex gap-2 text-2xl font-bold'>
+                                <a href={project.websiteUrl}>
+                                    {project.img}
+                                </a>
+                                <h2>{project.name}</h2>
+                            </div>
                             <p>{project.description}</p>
-                            <a href={project.websiteUrl}>
-                                {project.img}
-                            </a>
-                        </li>
+                        </div>
+
                     </Card>
                 ))}
-            </ul>
+            </div>
         </CustomLayout>
     )
 }
