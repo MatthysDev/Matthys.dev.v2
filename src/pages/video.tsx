@@ -16,7 +16,7 @@ export default function Video() {
     return (
         <CustomLayout withMenu>
             <Head>
-                <title>Matthys.dev | Vidéo</title> {/* Setting the title metadata */}
+                <title>Matthys.dev | Vidéo</title>
             </Head>
             <div className='flex gap-12 mt-24 mb-32 2xl:my-32 '>
                 <div className='w-full md:w-1/2'>
@@ -29,7 +29,7 @@ export default function Video() {
                                     objectFit='cover'
                                     className='rounded-lg'
                                     layout='responsive'
-                                    width={1} // Set width and height to maintain aspect ratio
+                                    width={1}
                                     height={1}
                                     loading='lazy'
                                 />
@@ -55,6 +55,9 @@ export default function Video() {
                 <div className='text-lg mb-12'>
                     - The best way to learn is to do. You can watch all the videos you want, but you won‘t learn anything until you actually do it.
                 </div>
+                <a href='https://www.tiktok.com/@mqtthys' target='_blank' rel='noreferrer'>
+                    <div className='text-2xl pt-2 mb-4 font-bold'>Check out the Tiktok that i made</div>
+                </a>
             </div>
         </CustomLayout>
     );
