@@ -3,6 +3,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Card from '@/components/Cards/Card';
+import Button from '@/components/Buttons/Button';
 
 type ProjectCardProps = {
   selectedId: number | null;
@@ -61,6 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, desc
                 <h2>{name}</h2>
               </div>
               <p>{description}</p>
+              <Button link={websiteUrl} isExternal text={`Visit ${name}`} color='bg-slate-950' neonColor='#fff' className={'text-white'} />
             </div>
 
           </motion.div>
