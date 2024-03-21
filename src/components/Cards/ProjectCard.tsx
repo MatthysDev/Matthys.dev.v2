@@ -62,7 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, desc
                 <h2>{name}</h2>
               </div>
               <p>{description}</p>
-              <Button link={websiteUrl} isExternal text={`Visit ${name}`} color='bg-slate-950' neonColor='#fff' className={'text-white'} />
+              <Button link={websiteUrl} isExternal text={`Visit ${name}`} color='bg-slate-950' neonColor='#fff' className={'text-white -m-5'} strokeColor='#FFFFFF' />
             </div>
 
           </motion.div>
