@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, desc
         layoutId={item.id.toString()}
         onClick={() => setSelectedId(isSelected ? null : item.id)}
       >
-        <Card withNeon style=' m-auto'>
+        <Card withNeon style='m-auto h-48'>
           <div className='flex flex-col gap-4 p-4 xl:pl-4 xl:py-6'>
             <div className='flex gap-2 text-xl xl:text-2xl font-bold'>
               <a href={websiteUrl}>
@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, desc
             exit={{ opacity: 0 }}
             transition={{ layout: { duration: 0.1 }, opacity: { duration: 1 } }}
             animate={{ opacity: 1, transition: { delay: 0 } }}
-            className="fixed inset-0 m-auto w-4/5 md:w-2/3 h-1/2 md:h-3/4 p-4 flex flex-col bg-slate-50 text-black rounded-lg shadow-[0px_0px_20px_2px_#fff] z-10 mx-auto"
+            className="fixed inset-0 m-auto w-4/5 md:w-2/3 h-1/2 md:h-3/4 p-4 flex flex-col bg-slate-300 text-black rounded-lg shadow-[0px_0px_20px_2px_#fff] z-10 mx-auto"
           >
             <motion.div className='flex justify-end fill-black z-20 text-right'>
               <div className='border-2 border-black py-2 px-3 rounded-md cursor-pointer' onClick={() => setSelectedId(null)}>
