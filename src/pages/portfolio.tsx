@@ -21,7 +21,7 @@ export default function Portfolio() {
                         id: projects.length - index,
                         title: project.name,
                         subtitle: project.description
-                    }} websiteUrl={project.websiteUrl} image={project.img} name={project.name} description={project.description} />
+                    }} websiteUrl={project.websiteUrl} image={project.img} name={project.name} description={project.description} longDescription={project.longDescription} />
                 ))}
             </div>
 

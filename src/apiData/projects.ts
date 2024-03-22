@@ -4,6 +4,7 @@ export const projects = [
         name: "DearValentine",
         description: "A website to send love letters to your loved ones",
         img: "❤️",
+        longDescription: "A website to send love letters to your loved ones. You can write a letter, choose a theme, and send it to your loved ones. You can also choose an activity to do together. The website is built with Next.js, TailwindCSS, and Supabase.",
     },
     {
         websiteUrl: "https//weshipit.today",

@@ -13,9 +13,10 @@ type ProjectCardProps = {
   image: string;
   name: string;
   description: string;
+  longDescription?: string;
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, description, selectedId, setSelectedId, item }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, description, selectedId, setSelectedId, item, longDescription }) => {
   const isSelected = selectedId === item.id;
 
   return (
@@ -61,7 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, desc
                 </a>
                 <h2>{name}</h2>
               </div>
-              <p>{description}</p>
+              <p>{longDescription ? longDescription : description}</p>
               <Button link={websiteUrl} isExternal text={`Visit ${name}`} color='bg-slate-950' neonColor='#fff' className={'text-white -m-5'} strokeColor='#FFFFFF' />
             </div>
 
