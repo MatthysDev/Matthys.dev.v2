@@ -32,6 +32,7 @@ export const projects = [
         name: "Deki",
         description: "Refactoring the mobile app with React Native and Typescript",
         img: "📱",
+        longDescription: "Refactoring the mobile app with React Native and Typescript. I also deployed the app on the Google Play Store",
     },
     {
         websiteUrl: "https://drdata.io",
