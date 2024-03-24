@@ -18,6 +18,7 @@ export const projects = [
         name: "Studio Low Cost",
         description: "My mission was to add storybook and some components for the website",
         img: "🎨",
+        longDescription: "My mission was to add storybook and some components for the website with React and Typescript",
     },
     {
         websiteUrl: "https://ecv.digital",
