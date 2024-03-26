@@ -11,6 +11,7 @@ export const projects = [
         name: "weshipit.today",
         description: "My company's website",
         img: "🚀",
+        longDescription: "My company's website. We build websites and mobile apps for startups and small businesses. We also provide consulting services for companies that want to improve their digital presence. The website is built with Next.js and TailwindCSS",
     },
     {
         websiteUrl: "http://www.studio-lowcost.com/",
