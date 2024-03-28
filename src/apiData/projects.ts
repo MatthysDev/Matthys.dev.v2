@@ -39,6 +39,7 @@ export const projects = [
         name: "DrData",
         description: "Iinitiated the project and worked on the first version of the mobile app",
         img: "📊",
+        longDescription: "I initiated the project and worked on the first version of the mobile app. The app is built with React Native and Typescript",
     },
     {
         websiteUrl: 'https://talibapp.com/',
