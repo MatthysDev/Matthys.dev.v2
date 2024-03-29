@@ -37,7 +37,7 @@ export const projects = [
     {
         websiteUrl: "https://drdata.io",
         name: "DrData",
-        description: "Iinitiated the project and worked on the first version of the mobile app",
+        description: "I initiated the project and worked on the first version of the mobile app",
         img: "📊",
         longDescription: "I initiated the project and worked on the first version of the mobile app. The app is built with React Native and Typescript",
     },
@@ -45,7 +45,8 @@ export const projects = [
         websiteUrl: 'https://talibapp.com/',
         name: 'Talib',
         description: 'Migrate the mobile app from Javascript to Typescript',
-        img: '🤲'
+        img: '🤲',
+        longDescription: 'Migrate the mobile app from Javascript to Typescript. I also added some new features to the app'
     },
     {
         websiteUrl: 'https://one-advice.vercel.app/',
