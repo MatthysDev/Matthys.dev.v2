@@ -53,6 +53,6 @@ export const projects = [
         name: 'One Advice',
         description: 'A website to give your best advice',
         img: '🤔',
-        longDescription: 'A website to give your best advice. You can write your best advice and share it with the world. The website is built with Tamagui, and Supabase.'
+        longDescription: 'A website to give your best advice. You can write your best advice and share it with the world. The website is built with Tamagui (Takeout starter), and Supabase.'
     }
 ];
