@@ -46,7 +46,7 @@ export const projects = [
         name: 'Talib',
         description: 'Migrate the mobile app from Javascript to Typescript',
         img: '🤲',
-        longDescription: 'Migrate the mobile app from Javascript to Typescript. I also added some new features to the app'
+        longDescription: 'Migrate the mobile app from Javascript to Typescript. I also added some new features to the app, and deployed it on the Google Play Store'
     },
     {
         websiteUrl: 'https://one-advice.vercel.app/',
