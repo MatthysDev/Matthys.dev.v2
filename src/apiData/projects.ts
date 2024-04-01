@@ -39,7 +39,7 @@ export const projects = [
         name: "DrData",
         description: "I initiated the project and worked on the first version of the mobile app",
         img: "📊",
-        longDescription: "I initiated the project and worked on the first version of the mobile app. The app is built with React Native and Typescript",
+        longDescription: "I initiated the project and worked on the first version of the mobile app. The app is built with React Native and Typescript and deployed on the Google Play Store",
     },
     {
         websiteUrl: 'https://talibapp.com/',
