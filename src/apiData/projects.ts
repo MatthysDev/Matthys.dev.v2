@@ -25,7 +25,7 @@ export const projects = [
         name: "ECV School",
         description: "My first bootcamp in a school as a teacher",
         img: "📚",
-        longDescription: "My first bootcamp in a school as a teacher. I taught the students how to build a React Native app with Typescript",
+        longDescription: "My first bootcamp in a school as a teacher. I taught the students how to build a React Native app with Typescript, and how to deploy it on the Google Play Store",
     },
     {
         websiteUrl: "https://www.deki.team/",
