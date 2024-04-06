@@ -14,7 +14,6 @@ const images: ImageData[] = [
     { img: '/me/me-catalin.jpg', description: 'Me and Catalin Miron at App.js 2023' },
     { img: '/me/amsterdam.jpg', description: 'Me and David Leuliette at React Summit 2022' },
     { img: '/me/lisboa.jpg', description: 'Me and the indie hackers from Lille at Lisboa 2022' },
-    // Ajoutez d'autres objets pour chaque image
 ];
 
 export default function About() {

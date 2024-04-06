@@ -22,7 +22,7 @@ const ImageGridContainer: React.FC<Props> = ({ url, alt, selectedId, setSelected
                 className={`imageNeon relative w-36 h-48 shadow-[0px_0px_20px_2px_#fff] rounded-lg ease-in transition-all duration-300 ${isSelected ? 'border-4 border-purple-500' : ''
                     }`}
             >
-                <Image src={url} alt={alt} fill objectFit='cover' className='rounded-lg' />
+                <Image src={url} alt={alt} fill className='rounded-lg' />
 
 
             </motion.div>
@@ -37,7 +37,7 @@ const ImageGridContainer: React.FC<Props> = ({ url, alt, selectedId, setSelected
                         animate={{ opacity: 1, transition: { delay: 0.32 } }}
                         className='fixed md:absolute shadow-[0px_0px_20px_2px_#fff] top-1/4 md:top-0 left-0 right-0 w-4/5 md:w-1/2 lg:w-1/3 xl:w-1/2 h-1/2 md:h-full p-4 flex flex-col gap-4 bg-gradient-to-tr from-gray-800 to-slate-950 rounded-lg z-10 mx-auto md:mx-0'
                     >
-                        <Image src={url} alt={alt} fill objectFit='cover' className='rounded-lg z-10 w-full h-2/3' loading='lazy' />
+                        <Image src={url} alt={alt} fill className='rounded-lg z-10 w-full h-2/3' loading='lazy' />
                         <motion.div className='flex justify-end fill-white z-20 text-right'>
                             <div className='border-2 py-2 px-3 rounded-md cursor-pointer' onClick={() => setSelectedId(null)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="32" width="24" viewBox="0 0 384 512">
