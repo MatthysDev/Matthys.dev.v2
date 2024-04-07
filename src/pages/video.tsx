@@ -55,9 +55,9 @@ export default function Video() {
                 <div className='text-lg mb-12'>
                     - The best way to learn is to do. You can watch all the videos you want, but you won‘t learn anything until you actually do it.
                 </div>
-                <a href='https://www.tiktok.com/@mqtthys' target='_blank' rel='noreferrer'>
+                {/* <a href='https://www.tiktok.com/@mqtthys' target='_blank' rel='noreferrer'>
                     <div className='text-2xl pt-2 mb-4 font-bold'>Check out the Tiktok that i made</div>
-                </a>
+                </a> */}
             </div>
         </CustomLayout>
     );
