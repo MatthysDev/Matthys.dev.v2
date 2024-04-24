@@ -58,9 +58,9 @@ export default function Video() {
                 {/* <a href='https://www.tiktok.com/@mqtthys' target='_blank' rel='noreferrer'>
                     <div className='text-2xl pt-2 mb-4 font-bold'>Check out the Tiktok that i made</div>
                 </a> */}
-                <a href='https://www.youtube.com/channel/UCir1GGVm053c97jLfCMdLRg' target='_blank' rel='noreferrer'>
+                {/* <a href='https://www.youtube.com/channel/UCir1GGVm053c97jLfCMdLRg' target='_blank' rel='noreferrer'>
                     <div className='text-2xl pt-2 mb-4 font-bold'>Check out my youtube channel</div>
-                </a>
+                </a> */}
             </div>
         </CustomLayout>
     );
