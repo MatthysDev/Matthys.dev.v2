@@ -29,7 +29,7 @@ ce positionnement (Expo expert, building Ekklo, contenu régulier).
 |---|---|
 | `gray-matter` | parsing du frontmatter |
 | `next-mdx-remote` | rendu MDX côté SSG (Pages Router) |
-| `rehype-pretty-code` + `shiki` | coloration syntaxique des snippets, thèmes light/dark assortis à la DA |
+| `rehype-pretty-code` + `shiki` | coloration syntaxique des snippets — thème `github-dark` sur fond sombre dans les deux modes (blocs de code sombres sur crème en light, cohérent avec la DA) |
 | `rehype-slug` + `rehype-autolink-headings` | ancres sur les titres |
 | `@tailwindcss/typography` | styles de prose |
 | `reading-time` | temps de lecture calculé au build |
