@@ -24,14 +24,14 @@ export default function Contact() {
     return (
         <section id="contact" className="scroll-mt-24 py-28 text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Let&apos;s work together</h2>
-            <p className="mx-auto mt-4 max-w-md text-base text-white/60 md:text-lg">
+            <p className="mx-auto mt-4 max-w-md text-base text-stone-600 dark:text-white/60 md:text-lg">
                 Have a project in mind or just want to say hi? Reach out by email or on LinkedIn.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                     href={`mailto:${EMAIL}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-glow-sm transition hover:bg-white/90"
+                    className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold text-cream transition hover:bg-stone-700 dark:bg-white dark:text-black dark:shadow-glow-sm dark:hover:bg-white/90"
                 >
                     <MailIcon />
                     Email me
@@ -40,14 +40,14 @@ export default function Contact() {
                     href={LINKEDIN}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-stone-900/20 px-6 py-3 text-sm font-semibold text-stone-700 transition hover:border-stone-900/60 hover:text-stone-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/60 dark:hover:text-white"
                 >
                     <LinkedInIcon />
                     LinkedIn
                 </a>
             </div>
 
-            <p className="mt-8 text-sm text-white/40">{EMAIL}</p>
+            <p className="mt-8 text-sm text-stone-500 dark:text-white/40">{EMAIL}</p>
         </section>
     )
 }

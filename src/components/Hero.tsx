@@ -7,18 +7,18 @@ export default function Hero() {
     return (
         <section className="flex flex-col items-center gap-10 pt-20 md:flex-row md:gap-14 md:pt-28">
             <div className="relative h-36 w-36 shrink-0 md:h-44 md:w-44">
-                <div className="absolute inset-0 rounded-full shadow-glow" />
+                <div className="absolute inset-0 rounded-full shadow-[0_0_24px_2px_rgba(28,25,23,0.15)] dark:shadow-glow" />
                 <Image
                     src="/pp.jpg"
                     alt="Matthys Ducrocq"
                     fill
                     priority
-                    className="rounded-full object-cover ring-1 ring-white/20"
+                    className="rounded-full object-cover ring-1 ring-stone-900/15 dark:ring-white/20"
                 />
             </div>
 
             <div className="flex flex-col gap-4 text-center md:text-left">
-                <span className="inline-flex items-center gap-2 self-center text-sm font-medium text-white/50 md:self-start">
+                <span className="inline-flex items-center gap-2 self-center text-sm font-medium text-stone-500 dark:text-white/50 md:self-start">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.7)]" />
                     Available for work
                 </span>
@@ -27,7 +27,7 @@ export default function Hero() {
                     Hi, I&apos;m Matthys
                 </h1>
 
-                <div className="text-xl font-semibold text-white/80 md:text-2xl">
+                <div className="text-xl font-semibold text-stone-700 dark:text-white/80 md:text-2xl">
                     <TypeAnimation
                         sequence={[
                             'React Native Developer', 2000,
@@ -41,7 +41,7 @@ export default function Hero() {
                     />
                 </div>
 
-                <p className="max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
+                <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-white/60 md:text-lg">
                     I build aesthetically pleasing mobile and web apps with React Native
                     and Tailwind. Beyond code, I capture moments through photography,
                     video and aerial perspectives — where engineering meets creativity.

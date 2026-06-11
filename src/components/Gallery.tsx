@@ -8,17 +8,16 @@ type Photo = {
 
 const photos: Photo[] = [
     { img: '/me/me-catalin.jpg', description: 'With Catalin Miron — App.js Conf 2023' },
-    { img: '/me/amsterdam.jpg', description: 'With David Leuliette — React Summit 2022' },
     { img: '/me/lisboa.jpg', description: 'With the Lille indie hackers — Lisboa 2022' },
 ]
 
 export default function Gallery() {
     return (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {photos.map((photo) => (
                 <figure
                     key={photo.img}
-                    className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                    className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-stone-900/10 bg-stone-900/5 dark:border-white/10 dark:bg-white/5"
                 >
                     <Image
                         src={photo.img}

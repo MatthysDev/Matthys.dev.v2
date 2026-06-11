@@ -1,4 +1,5 @@
 export const clients = [
+    { id: '0', data: { name: 'Ekklo', logo: { url: '/clients/ekklo.png' } } },
     { id: '1', data: { name: 'DrData', logo: { url: '/clients/drdata.png' } } },
     { id: '2', data: { name: 'Deki', logo: { url: '/clients/deki.png' } } },
     { id: '3', data: { name: 'Studio Low Cost', logo: { url: '/clients/slc.png' } } },

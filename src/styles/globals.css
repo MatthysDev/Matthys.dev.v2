@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light mode — warm cream */
 :root {
+  --background: #faf5eb;
+  --foreground: #1c1917;
+  --muted: #78716c;
+}
+
+/* Dark mode — monochrome black */
+.dark {
   --background: #050505;
   --foreground: #ededed;
   --muted: #8a8a8a;
@@ -27,8 +35,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Selection in the monochrome palette */
 ::selection {
+  background: rgba(28, 25, 23, 0.15);
+  color: #1c1917;
+}
+.dark ::selection {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
@@ -41,9 +52,15 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(28, 25, 23, 0.15);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(28, 25, 23, 0.3);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }

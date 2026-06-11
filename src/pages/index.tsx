@@ -33,7 +33,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
           Around the world
         </h2>
-        <p className="mt-3 max-w-xl text-white/60">
+        <p className="mt-3 max-w-xl text-stone-600 dark:text-white/60">
           A few moments from conferences and meetups I&apos;ve been lucky to attend.
         </p>
         <div className="mt-10">
@@ -42,7 +42,7 @@ export default function Home() {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
-        <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/40">
+        <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-stone-500 dark:text-white/40">
           Trusted by
         </h2>
         <Clients clients={clients} />
