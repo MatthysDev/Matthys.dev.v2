@@ -1,13 +1,18 @@
-// neonStyles.js
+// Monochrome glow accents — kept subtle and dosed.
+// Names preserved for backwards compatibility with existing imports.
+import type { CSSProperties } from 'react';
 
-export const neonBlue = {
-  textShadow: '1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue',
+/** Active / highlighted element — soft white glow. */
+export const neonBlanc: CSSProperties = {
+  textShadow: '0 0 12px rgba(255, 255, 255, 0.45)',
 };
 
-export const neonPurple = {
-  textShadow: '1px 1px 2px purple, 0 0 1em purple, 0 0 0.2em purple',
+/** Stronger accent glow for the brand / key titles. */
+export const neonPurple: CSSProperties = {
+  textShadow: '0 0 18px rgba(255, 255, 255, 0.55)',
 };
 
-export const neonBlanc = {
-  textShadow: '0.3px 0.3px 0.3px white, 0 0 0.3em white, 0 0 0.05em white',
+/** Very subtle glow, for hover or secondary emphasis. */
+export const neonSubtle: CSSProperties = {
+  textShadow: '0 0 8px rgba(255, 255, 255, 0.25)',
 };

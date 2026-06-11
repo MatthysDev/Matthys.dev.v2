@@ -1,54 +1,23 @@
-import { neonBlanc, neonPurple } from '@/components/neonStyles'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React from 'react'
+import { neonSubtle } from '@/components/neonStyles'
 
-type Props = {}
-
-export default function Menu({ }: Props) {
-    const router = useRouter();
+export default function Menu() {
     return (
-        <div className=' w-2/3 m-auto flex py-8'>
-            <Link href='/about' legacyBehavior passHref>
-                <a
-                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/about' ? neonPurple : neonBlanc}
-                >
-                    About
-                </a>
+        <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-6">
+            <Link
+                href="/"
+                className="text-lg font-bold tracking-tight text-white transition hover:opacity-80"
+                style={neonSubtle}
+            >
+                Matthys<span className="text-white/50">.dev</span>
             </Link>
-            <Link href='/posters' legacyBehavior passHref>
-                <a
-                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/posters' ? neonPurple : neonBlanc}
-                >
-                    Posters
-                </a>
+            <Link
+                href="#contact"
+                className="rounded-full border border-white/20 px-4 py-1.5 text-sm font-medium text-white/80 transition hover:border-white/60 hover:text-white"
+            >
+                Contact
             </Link>
-            <Link href='/' legacyBehavior passHref>
-                <a
-                    className={`text-3xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/' ? neonPurple : neonBlanc}
-                >
-                    Matthys.Dev
-                </a>
-            </Link>
-            <Link href='/video' legacyBehavior passHref>
-                <a
-                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/video' ? neonPurple : neonBlanc}
-                >
-                    Video
-                </a>
-            </Link>
-            <Link href='/contact' legacyBehavior passHref>
-                <a
-                    className={`text-xl font-bold text-white relative m-auto ${router.pathname === '/' ? 'text-purple-300' : ''}`}
-                    style={router.pathname === '/contact' ? neonPurple : neonBlanc}
-                >
-                    Contact
-                </a>
-            </Link>
-        </div>
+        </nav>
     )
 }

@@ -1,35 +1,56 @@
-'use client'
-import { neonBlanc } from '@/components/neonStyles';
-import Button from '@/components/Buttons/Button';
-import Hero from '@/components/Hero';
-import { palette } from '@/utils/palette';
-import CustomLayout from '@/components/CustomLayout';
-import { Clients } from '@/components/Clients';
-import { clients } from '@/apiData/clients';
-import VideoHero from '@/components/video/VideoHero';
-import Head from 'next/head';
+import Head from 'next/head'
+import CustomLayout from '@/components/CustomLayout'
+import Hero from '@/components/Hero'
+import Gallery from '@/components/Gallery'
+import Contact from '@/components/Contact'
+import Reveal from '@/components/Reveal'
+import { Clients } from '@/components/Clients'
+import { clients } from '@/apiData/clients'
 
 export default function Home() {
-
   return (
-    <CustomLayout withMenu>
+    <CustomLayout>
       <Head>
-        <title>Matthys.dev</title>
+        <title>Matthys Ducrocq — React Native Developer</title>
+        <meta
+          name="description"
+          content="Matthys Ducrocq — React Native developer crafting aesthetically pleasing mobile and web apps, with a creative eye for photography and video."
+        />
+        <meta property="og:title" content="Matthys Ducrocq — React Native Developer" />
+        <meta
+          property="og:description"
+          content="React Native developer crafting aesthetically pleasing mobile and web apps."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.matthys.dev" />
       </Head>
-      <div className="flex flex-col items-center p-0 md:p-12 ">
-        <div className='mt-24'>
-          <Hero />
+
+      <Reveal>
+        <Hero />
+      </Reveal>
+
+      <Reveal className="mt-28 md:mt-36">
+        <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+          Around the world
+        </h2>
+        <p className="mt-3 max-w-xl text-white/60">
+          A few moments from conferences and meetups I&apos;ve been lucky to attend.
+        </p>
+        <div className="mt-10">
+          <Gallery />
         </div>
-        <div className='flex mt-0 mb-2'>
-          <Button link={'/about'} text={'About me'} color={'bg-sky-200'} neonColor={palette.sky200} className='font-semibold' />
-          <Button link={'https://airtable.com/appOrrPF35ppPjTKx/shrZLcDgGq0Kb6soN?backgroundColor=purple'} text={'Contact-me'} color={'bg-purple-300'} isExternal neonColor={palette.purple300} className={'font-semibold'} />
-        </div>
-      </div>
-      <div className='mt-12 mb-36 text-xl font-bold text-center md:text-4xl '>
-        I work with them
+      </Reveal>
+
+      <Reveal className="mt-28 md:mt-36">
+        <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/40">
+          Trusted by
+        </h2>
         <Clients clients={clients} />
-      </div>
-      {/* <VideoHero /> */}
+      </Reveal>
+
+      <Reveal>
+        <Contact />
+      </Reveal>
     </CustomLayout>
   )
 }
