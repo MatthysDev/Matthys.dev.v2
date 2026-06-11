@@ -7,6 +7,9 @@ type Photo = {
 }
 
 const photos: Photo[] = [
+    { img: '/me/appjs-podcast-2026.jpg', description: 'Podcast — App.js Conf 2026 special' },
+    { img: '/me/appjs-expo-team-2026.jpg', description: 'With the Expo team — App.js Conf 2026' },
+    { img: '/me/sf-carlos-diaz-2026.jpg', description: 'With Carlos Diaz — San Francisco, May 2026' },
     { img: '/me/sf-indie-2026.jpg', description: 'Indie hacker crew, with Marc Lou — San Francisco, May 2026' },
     { img: '/me/appjs-french-team-2026.jpg', description: 'With the French team — App.js Conf 2026' },
     { img: '/me/lille-indie-2025.jpg', description: 'Lille indie hackers meetup — October 2025' },
