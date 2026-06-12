@@ -1,25 +1,36 @@
 import Head from 'next/head'
+import type { GetStaticProps } from 'next'
 import CustomLayout from '@/components/CustomLayout'
 import Hero from '@/components/Hero'
+import NowBuilding from '@/components/NowBuilding'
+import LatestPosts from '@/components/Blog/LatestPosts'
 import Gallery from '@/components/Gallery'
 import Contact from '@/components/Contact'
 import Reveal from '@/components/Reveal'
+import Stats from '@/components/Stats'
 import { Clients } from '@/components/Clients'
 import { clients } from '@/apiData/clients'
+import { getAllPosts, type PostMeta } from '@/utils/posts'
 
-export default function Home() {
+type Props = { posts: PostMeta[] }
+
+export const getStaticProps: GetStaticProps<Props> = async () => ({
+  props: { posts: getAllPosts().slice(0, 3) },
+})
+
+export default function Home({ posts }: Props) {
   return (
     <CustomLayout>
       <Head>
-        <title>Matthys Ducrocq — React Native Developer</title>
+        <title>Matthys Ducrocq — React Native & Expo Developer</title>
         <meta
           name="description"
-          content="Matthys Ducrocq — React Native developer crafting aesthetically pleasing mobile and web apps, with a creative eye for photography and video."
+          content="Matthys Ducrocq — React Native & Expo developer, building Ekklo full-time and writing about real-world mobile development."
         />
-        <meta property="og:title" content="Matthys Ducrocq — React Native Developer" />
+        <meta property="og:title" content="Matthys Ducrocq — React Native & Expo Developer" />
         <meta
           property="og:description"
-          content="React Native developer crafting aesthetically pleasing mobile and web apps."
+          content="React Native & Expo developer, building Ekklo full-time and writing about real-world mobile development."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.matthys.dev" />
@@ -27,6 +38,14 @@ export default function Home() {
 
       <Reveal>
         <Hero />
+      </Reveal>
+
+      <Reveal className="mt-28 md:mt-36">
+        <NowBuilding />
+      </Reveal>
+
+      <Reveal className="mt-28 md:mt-36">
+        <LatestPosts posts={posts} />
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
@@ -46,6 +65,7 @@ export default function Home() {
           Trusted by
         </h2>
         <Clients clients={clients} />
+        <Stats />
       </Reveal>
 
       <Reveal>

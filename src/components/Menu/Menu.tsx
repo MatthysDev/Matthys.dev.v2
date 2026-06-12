@@ -12,9 +12,15 @@ export default function Menu() {
                 Matthys<span className="text-stone-500 dark:text-white/50">.dev</span>
             </Link>
             <div className="flex items-center gap-3">
+                <Link
+                    href="/blog"
+                    className="text-sm font-medium text-stone-600 transition hover:text-stone-900 dark:text-white/60 dark:hover:text-white"
+                >
+                    Blog
+                </Link>
                 <ThemeToggle />
                 <Link
-                    href="#contact"
+                    href="/#contact"
                     className="rounded-full border border-stone-900/20 px-4 py-1.5 text-sm font-medium text-stone-700 transition hover:border-stone-900/60 hover:text-stone-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/60 dark:hover:text-white"
                 >
                     Contact

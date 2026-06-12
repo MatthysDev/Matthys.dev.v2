@@ -2,6 +2,7 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
     return (
@@ -31,9 +32,9 @@ export default function Hero() {
                     <TypeAnimation
                         sequence={[
                             'React Native Developer', 2000,
-                            'Creative Coder', 2000,
+                            'Expo Enthusiast', 2000,
+                            'Building Ekklo', 2000,
                             'Photographer', 2000,
-                            'Drone Pilot', 2000,
                         ]}
                         speed={45}
                         repeat={Infinity}
@@ -42,10 +43,25 @@ export default function Hero() {
                 </div>
 
                 <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-white/60 md:text-lg">
-                    I build aesthetically pleasing mobile and web apps with React Native
-                    and Tailwind. Beyond code, I capture moments through photography,
-                    video and aerial perspectives — where engineering meets creativity.
+                    I build mobile apps with React Native and Expo — always on the latest
+                    SDK. Right now I&apos;m all-in on Ekklo, a fitness coaching platform,
+                    and I write about what I learn building it.
                 </p>
+
+                <div className="mt-2 flex flex-wrap justify-center gap-3 md:justify-start">
+                    <Link
+                        href="/blog"
+                        className="rounded-full bg-stone-900 px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-stone-700 dark:bg-white dark:text-black dark:shadow-glow-sm dark:hover:bg-white/90"
+                    >
+                        Read the blog
+                    </Link>
+                    <Link
+                        href="#ekklo"
+                        className="rounded-full border border-stone-900/20 px-5 py-2.5 text-sm font-semibold text-stone-700 transition hover:border-stone-900/60 hover:text-stone-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/60 dark:hover:text-white"
+                    >
+                        What I&apos;m building
+                    </Link>
+                </div>
             </div>
         </section>
     )
