@@ -1,4 +1,5 @@
 import React from 'react'
+import { SectionKicker } from '@/components/Blueprint'
 
 const EMAIL = 'ducrocq.matthys@gmail.com'
 const LINKEDIN = 'https://www.linkedin.com/in/matthys-ducrocq'
@@ -23,7 +24,8 @@ function LinkedInIcon() {
 export default function Contact() {
     return (
         <section id="contact" className="scroll-mt-24 py-28 text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Let&apos;s work together</h2>
+            <SectionKicker index="05" label="contact" className="text-center" />
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">Let&apos;s work together</h2>
             <p className="mx-auto mt-4 max-w-md text-base text-stone-600 dark:text-white/60 md:text-lg">
                 Have a project in mind or just want to say hi? Reach out by email or on LinkedIn.
             </p>

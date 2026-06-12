@@ -3,18 +3,22 @@ import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import Image from 'next/image'
 import Link from 'next/link'
+import { CornerMarks } from '@/components/Blueprint'
 
 export default function Hero() {
     return (
         <section className="flex flex-col items-center gap-10 pt-20 md:flex-row md:gap-14 md:pt-28">
             <div className="relative h-36 w-36 shrink-0 md:h-44 md:w-44">
-                <div className="absolute inset-0 rounded-full shadow-[0_0_24px_2px_rgba(28,25,23,0.15)] dark:shadow-glow" />
+                <div className="absolute -inset-3 rounded-none border border-dashed border-stone-900/20 dark:border-sky-300/25">
+                    <CornerMarks />
+                </div>
+                <div className="absolute inset-0 rounded-2xl shadow-[0_0_24px_2px_rgba(28,25,23,0.15)] dark:shadow-glow" />
                 <Image
                     src="/pp.jpg"
                     alt="Matthys Ducrocq"
                     fill
                     priority
-                    className="rounded-full object-cover ring-1 ring-stone-900/15 dark:ring-white/20"
+                    className="rounded-2xl object-cover ring-1 ring-stone-900/15 dark:ring-white/20"
                 />
             </div>
 
@@ -34,6 +38,7 @@ export default function Hero() {
                             'React Native Developer', 2000,
                             'Expo Enthusiast', 2000,
                             'Building Ekklo', 2000,
+                            'Building Leaf & simgrid', 2000,
                             'Photographer', 2000,
                         ]}
                         speed={45}
@@ -56,7 +61,7 @@ export default function Hero() {
                         Read the blog
                     </Link>
                     <Link
-                        href="#ekklo"
+                        href="#building"
                         className="rounded-full border border-stone-900/20 px-5 py-2.5 text-sm font-semibold text-stone-700 transition hover:border-stone-900/60 hover:text-stone-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/60 dark:hover:text-white"
                     >
                         What I&apos;m building

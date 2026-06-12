@@ -10,6 +10,7 @@ import Reveal from '@/components/Reveal'
 import Stats from '@/components/Stats'
 import { Clients } from '@/components/Clients'
 import { clients } from '@/apiData/clients'
+import { SectionKicker } from '@/components/Blueprint'
 import { getAllPosts, type PostMeta } from '@/utils/posts'
 
 type Props = { posts: PostMeta[] }
@@ -49,7 +50,8 @@ export default function Home({ posts }: Props) {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
-        <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+        <SectionKicker index="03" label="around the world" />
+        <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
           Around the world
         </h2>
         <p className="mt-3 max-w-xl text-stone-600 dark:text-white/60">
@@ -61,9 +63,7 @@ export default function Home({ posts }: Props) {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
-        <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-stone-500 dark:text-white/40">
-          Trusted by
-        </h2>
+        <SectionKicker index="04" label="trusted by" className="text-center" />
         <Clients clients={clients} />
         <Stats />
       </Reveal>

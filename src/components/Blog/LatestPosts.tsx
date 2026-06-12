@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import PostCard from '@/components/Blog/PostCard'
+import { SectionKicker } from '@/components/Blueprint'
 import type { PostMeta } from '@/utils/posts'
 
 export default function LatestPosts({ posts }: { posts: PostMeta[] }) {
@@ -10,7 +11,8 @@ export default function LatestPosts({ posts }: { posts: PostMeta[] }) {
         <section>
             <div className="flex items-end justify-between gap-6">
                 <div>
-                    <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+                    <SectionKicker index="02" label="writing" />
+                    <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
                         Latest writing
                     </h2>
                     <p className="mt-3 max-w-xl text-stone-600 dark:text-white/60">
