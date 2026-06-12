@@ -8,6 +8,12 @@ export default function Document() {
     <Html lang="en" className="dark">
       <Head>
         <link rel="icon" href="/favicon.png" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Matthys Ducrocq — Blog"
+          href="/rss.xml"
+        />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </Head>
       <body>

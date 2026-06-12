@@ -64,3 +64,13 @@ body {
 .dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+/* Blocs de code (rehype-pretty-code + @tailwindcss/typography) */
+.prose pre {
+  @apply border border-stone-900/10 dark:border-white/10;
+}
+/* Retire les backticks ajoutés par typography autour du code inline */
+.prose :where(code):not(:where(pre code))::before,
+.prose :where(code):not(:where(pre code))::after {
+  content: '';
+}
