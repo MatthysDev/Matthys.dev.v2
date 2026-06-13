@@ -18,6 +18,18 @@ export default function MenuMobile() {
                 >
                     Blog
                 </Link>
+                <Link
+                    href="/portfolio"
+                    className="text-sm font-medium text-stone-600 transition hover:text-stone-900 dark:text-white/60 dark:hover:text-white"
+                >
+                    Portfolio
+                </Link>
+                <Link
+                    href="/now"
+                    className="text-sm font-medium text-stone-600 transition hover:text-stone-900 dark:text-white/60 dark:hover:text-white"
+                >
+                    Now
+                </Link>
                 <ThemeToggle />
                 <Link
                     href="/#contact"

@@ -1,6 +1,7 @@
-import Head from 'next/head'
 import type { GetStaticProps } from 'next'
 import CustomLayout from '@/components/CustomLayout'
+import Seo from '@/components/Seo'
+import JsonLd from '@/components/JsonLd'
 import Hero from '@/components/Hero'
 import NowBuilding from '@/components/NowBuilding'
 import LatestPosts from '@/components/Blog/LatestPosts'
@@ -22,20 +23,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
 export default function Home({ posts }: Props) {
   return (
     <CustomLayout>
-      <Head>
-        <title>Matthys Ducrocq — React Native & Expo Developer</title>
-        <meta
-          name="description"
-          content="Matthys Ducrocq — React Native & Expo developer, building Ekklo full-time and writing about real-world mobile development."
-        />
-        <meta property="og:title" content="Matthys Ducrocq — React Native & Expo Developer" />
-        <meta
-          property="og:description"
-          content="React Native & Expo developer, building Ekklo full-time and writing about real-world mobile development."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.matthys.dev" />
-      </Head>
+      <Seo path="/" />
+      <JsonLd />
 
       <Reveal>
         <Hero />

@@ -8,6 +8,17 @@ export default function Document() {
     <Html lang="en" className="dark">
       <Head>
         <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta
+          name="theme-color"
+          content="#FAF5EB"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#050505"
+          media="(prefers-color-scheme: dark)"
+        />
         <link
           rel="alternate"
           type="application/rss+xml"

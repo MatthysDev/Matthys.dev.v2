@@ -15,6 +15,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^11.15.0",
     "gray-matter": "^4.0.3",
     "next": "^15.1.0",

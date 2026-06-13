@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -7,6 +6,8 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import CustomLayout from '@/components/CustomLayout'
+import Seo from '@/components/Seo'
+import ReadingProgress from '@/components/Blog/ReadingProgress'
 import mdxComponents from '@/components/Blog/mdxComponents'
 import { getPost, getPostSlugs, type PostMeta } from '@/utils/posts'
 import { formatDate } from '@/utils/formatDate'
@@ -35,15 +36,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 export default function PostPage({ meta, source }: Props) {
     return (
         <CustomLayout>
-            <Head>
-                <title>{`${meta.title} — Matthys Ducrocq`}</title>
-                <meta name="description" content={meta.description} />
-                <meta property="og:title" content={meta.title} />
-                <meta property="og:description" content={meta.description} />
-                <meta property="og:type" content="article" />
-                <meta property="article:published_time" content={meta.date} />
-                <meta property="og:url" content={`https://www.matthys.dev/blog/${meta.slug}`} />
-            </Head>
+            <Seo
+                type="article"
+                title={meta.title}
+                description={meta.description}
+                path={`/blog/${meta.slug}`}
+            />
+            <ReadingProgress />
 
             <article className="mx-auto max-w-2xl pb-28 pt-16 md:pt-24">
                 <Link

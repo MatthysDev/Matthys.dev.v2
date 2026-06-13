@@ -16,7 +16,6 @@ const photos: Photo[] = [
     { img: '/me/appjs-karting-2025.jpg', description: 'Karting with Vadim (notJust.dev) & Bart Widlarz — App.js Conf 2025' },
     { img: '/me/nyc-indie-2024.jpg', description: 'Indie hackers meetup — New York, May 2024' },
     { img: '/me/me-catalin.jpg', description: 'With Catalin Miron — App.js Conf 2023' },
-    { img: '/me/lisboa.jpg', description: 'With the Lille indie hackers — Lisboa 2022' },
 ]
 
 export default function Gallery() {

@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import type { GetStaticProps } from 'next'
 import CustomLayout from '@/components/CustomLayout'
+import Seo from '@/components/Seo'
 import Reveal from '@/components/Reveal'
 import PostCard from '@/components/Blog/PostCard'
 import { getAllPosts, type PostMeta } from '@/utils/posts'
@@ -14,20 +14,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
 export default function Blog({ posts }: Props) {
     return (
         <CustomLayout>
-            <Head>
-                <title>Blog — Matthys Ducrocq</title>
-                <meta
-                    name="description"
-                    content="Notes from building Ekklo with Expo and React Native — real-world lessons, stack choices, and staying up to date."
-                />
-                <meta property="og:title" content="Blog — Matthys Ducrocq" />
-                <meta
-                    property="og:description"
-                    content="Notes from building Ekklo with Expo and React Native."
-                />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.matthys.dev/blog" />
-            </Head>
+            <Seo
+                title="Blog"
+                path="/blog"
+                description="Notes on real-world Expo & React Native, building Ekklo, Leaf and simgrid."
+            />
 
             <Reveal>
                 <section className="pb-28 pt-20 md:pt-28">

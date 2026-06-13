@@ -1,11 +1,14 @@
 'use client'
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
+import { useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CornerMarks } from '@/components/Blueprint'
 
 export default function Hero() {
+    const reducedMotion = useReducedMotion()
+
     return (
         <section className="flex flex-col items-center gap-10 pt-20 md:flex-row md:gap-14 md:pt-28">
             <div className="relative h-36 w-36 shrink-0 md:h-44 md:w-44">
@@ -33,18 +36,22 @@ export default function Hero() {
                 </h1>
 
                 <div className="text-xl font-semibold text-stone-700 dark:text-white/80 md:text-2xl">
-                    <TypeAnimation
-                        sequence={[
-                            'React Native Developer', 2000,
-                            'Expo Enthusiast', 2000,
-                            'Building Ekklo', 2000,
-                            'Building Leaf & simgrid', 2000,
-                            'Photographer', 2000,
-                        ]}
-                        speed={45}
-                        repeat={Infinity}
-                        cursor
-                    />
+                    {reducedMotion ? (
+                        <span>React Native Developer</span>
+                    ) : (
+                        <TypeAnimation
+                            sequence={[
+                                'React Native Developer', 2000,
+                                'Expo Enthusiast', 2000,
+                                'Building Ekklo', 2000,
+                                'Building Leaf & simgrid', 2000,
+                                'Photographer', 2000,
+                            ]}
+                            speed={45}
+                            repeat={Infinity}
+                            cursor
+                        />
+                    )}
                 </div>
 
                 <p className="max-w-xl text-base leading-relaxed text-stone-600 dark:text-white/60 md:text-lg">

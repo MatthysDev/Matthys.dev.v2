@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuMobile from '@/components/Menu/MenuMobile';
 import Menu from '@/components/Menu/Menu';
+import Footer from '@/components/Footer';
 
 type Props = {
     children: React.ReactNode;
@@ -29,6 +30,8 @@ const CustomLayout = ({ children }: Props) => {
                 <main className="mx-auto w-full max-w-5xl flex-1 px-6 md:px-8">
                     {children}
                 </main>
+
+                <Footer />
             </div>
         </div>
     );

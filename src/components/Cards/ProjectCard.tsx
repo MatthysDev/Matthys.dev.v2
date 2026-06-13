@@ -1,76 +1,130 @@
-// ImageGridContainer.tsx
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import Card from '@/components/Cards/Card';
-import Button from '@/components/Buttons/Button';
+'use client'
+
+import React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CornerMarks } from '@/components/Blueprint'
 
 type ProjectCardProps = {
-  selectedId: number | null;
-  setSelectedId: React.Dispatch<React.SetStateAction<number | null>>;
-  item: { id: number; title: string; subtitle: string };
-  websiteUrl: string;
-  image: string;
-  name: string;
-  description: string;
-  longDescription?: string;
-};
+    selectedId: number | null
+    setSelectedId: React.Dispatch<React.SetStateAction<number | null>>
+    item: { id: number; title: string; subtitle: string }
+    websiteUrl: string
+    image: string
+    name: string
+    description: string
+    longDescription?: string
+}
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ websiteUrl, image, name, description, selectedId, setSelectedId, item, longDescription }) => {
-  const isSelected = selectedId === item.id;
+function isValidUrl(url: string): boolean {
+    return /^https?:\/\/.+/.test(url)
+}
 
-  return (
-    <>
-      <motion.div
-        layoutId={item.id.toString()}
-        onClick={() => setSelectedId(isSelected ? null : item.id)}
-      >
-        <Card withNeon style='m-auto h-48'>
-          <div className='flex flex-col gap-4 p-4 xl:pl-4 xl:py-6'>
-            <div className='flex gap-2 text-xl xl:text-2xl font-bold'>
-              <a href={websiteUrl}>
-                {image}
-              </a>
-              <h2>{name}</h2>
-            </div>
-            <p>{description}</p>
-          </div>
+const ProjectCard: React.FC<ProjectCardProps> = ({
+    websiteUrl,
+    image,
+    name,
+    description,
+    selectedId,
+    setSelectedId,
+    item,
+    longDescription,
+}) => {
+    const isSelected = selectedId === item.id
+    const hasUrl = isValidUrl(websiteUrl)
+    const index = String(item.id).padStart(2, '0')
 
-        </Card>
-      </motion.div>
-      <AnimatePresence>
-        {isSelected && (
-          <motion.div
-            layoutId={item.id.toString()}
-            initial={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ layout: { duration: 0.1 }, opacity: { duration: 1 } }}
-            animate={{ opacity: 1, transition: { delay: 0 } }}
-            className="fixed inset-0 m-auto w-4/5 md:w-2/3 h-1/2 md:h-3/4 p-4 flex flex-col bg-slate-300 text-black rounded-lg shadow-[0px_0px_20px_2px_#fff] z-10 mx-auto"
-          >
-            <motion.div className='flex justify-end fill-black z-20 text-right'>
-              <div className='border-2 border-black py-2 px-3 rounded-md cursor-pointer' onClick={() => setSelectedId(null)}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="24" viewBox="0 0 384 512">
-                  <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                </svg>
-              </div>
+    return (
+        <>
+            <motion.div
+                layoutId={item.id.toString()}
+                onClick={() => setSelectedId(isSelected ? null : item.id)}
+                className="group relative h-full cursor-pointer rounded-2xl border border-dashed border-stone-900/20 bg-stone-900/[0.02] p-5 transition-colors hover:border-stone-900/40 dark:border-white/15 dark:bg-white/[0.02] dark:hover:border-sky-300/40"
+            >
+                <CornerMarks />
+                <div className="flex items-start justify-between">
+                    <div
+                        aria-hidden
+                        className="flex h-12 w-12 items-center justify-center rounded-xl border border-dashed border-stone-900/20 text-2xl dark:border-white/15"
+                    >
+                        {image}
+                    </div>
+                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-sky-300/40">
+                        {index}
+                    </span>
+                </div>
+                <h2 className="mt-4 text-lg font-bold tracking-tight text-stone-900 dark:text-white">
+                    {name}
+                </h2>
+                <p className="mt-2 text-sm text-stone-600 dark:text-white/60">{description}</p>
+                {hasUrl && (
+                    <span className="mt-4 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.2em] text-stone-500 transition-colors group-hover:text-stone-900 dark:text-white/50 dark:group-hover:text-sky-300">
+                        visit -&gt;
+                    </span>
+                )}
             </motion.div>
-            <div className='flex flex-col gap-4 p-4 xl:pl-4 xl:py-6'>
-              <div className='flex gap-2 text-xl xl:text-2xl font-bold'>
-                <a href={websiteUrl}>
-                  {image}
-                </a>
-                <h2>{name}</h2>
-              </div>
-              <p>{longDescription ? longDescription : description}</p>
-              <Button link={websiteUrl} isExternal text={`Visit ${name}`} color='bg-slate-950' neonColor='#fff' className={'text-white -m-5'} strokeColor='#FFFFFF' />
-            </div>
 
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-};
+            <AnimatePresence>
+                {isSelected && (
+                    <motion.div
+                        className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={() => setSelectedId(null)}
+                    >
+                        <motion.div
+                            layoutId={item.id.toString()}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative w-full max-w-lg rounded-2xl border border-dashed border-stone-900/20 bg-cream p-7 shadow-xl dark:border-sky-300/40 dark:bg-[#050505]"
+                        >
+                            <CornerMarks />
+                            <div className="flex items-start justify-between">
+                                <div
+                                    aria-hidden
+                                    className="flex h-14 w-14 items-center justify-center rounded-xl border border-dashed border-stone-900/20 text-3xl dark:border-white/15"
+                                >
+                                    {image}
+                                </div>
+                                <button
+                                    type="button"
+                                    aria-label="Close"
+                                    onClick={() => setSelectedId(null)}
+                                    className="rounded-full border border-dashed border-stone-900/20 p-2 text-stone-600 transition-colors hover:border-stone-900/40 dark:border-white/15 dark:text-white/60 dark:hover:border-sky-300/40"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                        height="16"
+                                        width="12"
+                                        fill="currentColor"
+                                    >
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <h2 className="mt-5 text-2xl font-bold tracking-tight text-stone-900 dark:text-white">
+                                {name}
+                            </h2>
+                            <p className="mt-3 text-stone-600 dark:text-white/60">
+                                {longDescription ? longDescription : description}
+                            </p>
+                            {hasUrl && (
+                                <a
+                                    href={websiteUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-6 inline-flex items-center gap-1 rounded-full bg-stone-900 px-5 py-2.5 text-sm font-semibold text-cream transition-opacity hover:opacity-90 dark:bg-white dark:text-black"
+                                >
+                                    Visit {name} -&gt;
+                                </a>
+                            )}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    )
+}
 
-export default ProjectCard;
+export default ProjectCard
