@@ -3,6 +3,7 @@ import CustomLayout from '@/components/CustomLayout'
 import Seo from '@/components/Seo'
 import JsonLd from '@/components/JsonLd'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
 import NowBuilding from '@/components/NowBuilding'
 import LatestPosts from '@/components/Blog/LatestPosts'
 import Gallery from '@/components/Gallery'
@@ -31,6 +32,10 @@ export default function Home({ posts }: Props) {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
+        <About />
+      </Reveal>
+
+      <Reveal className="mt-28 md:mt-36">
         <NowBuilding />
       </Reveal>
 
@@ -39,7 +44,7 @@ export default function Home({ posts }: Props) {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
-        <SectionKicker index="03" label="around the world" />
+        <SectionKicker index="04" label="around the world" />
         <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
           Around the world
         </h2>
@@ -52,7 +57,7 @@ export default function Home({ posts }: Props) {
       </Reveal>
 
       <Reveal className="mt-28 md:mt-36">
-        <SectionKicker index="04" label="trusted by" className="text-center" />
+        <SectionKicker index="05" label="trusted by" className="text-center" />
         <Clients clients={clients} />
         <Stats />
       </Reveal>

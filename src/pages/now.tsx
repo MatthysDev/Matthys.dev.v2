@@ -69,8 +69,9 @@ export default function Now() {
                 </h1>
                 <p className="mt-4 max-w-2xl leading-relaxed text-stone-600 dark:text-white/60">
                     I&apos;m Matthys, a React Native and Expo developer in Lille. Here&apos;s
-                    what I&apos;m actually working on right now: shipping Ekklo full-time,
-                    building two side projects, writing, and staying close to the community.
+                    what I&apos;m actually working on right now: running my studio weshipit,
+                    leading mobile at Ekklo, building two side projects, writing, and staying
+                    close to the community.
                 </p>
                 <p className="mt-3 font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-white/40">
                     Last updated June 2026

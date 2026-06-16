@@ -175,7 +175,7 @@ export default function NowBuilding() {
         <section id="building" className="scroll-mt-24">
             {/* Kept for old #ekklo anchors */}
             <span id="ekklo" />
-            <SectionKicker index="01" label="building" />
+            <SectionKicker index="02" label="building" />
             <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
                 What I&apos;m building now
             </h2>

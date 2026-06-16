@@ -11,7 +11,7 @@ export default function LatestPosts({ posts }: { posts: PostMeta[] }) {
         <section>
             <div className="flex items-end justify-between gap-6">
                 <div>
-                    <SectionKicker index="02" label="writing" />
+                    <SectionKicker index="03" label="writing" />
                     <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
                         Latest writing
                     </h2>

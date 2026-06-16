@@ -54,7 +54,7 @@ ${rssItems}
 </rss>
 `
 
-const staticPages = ['', '/blog', '/portfolio']
+const staticPages = ['', '/about', '/blog', '/portfolio', '/now']
 const urls = [
     ...staticPages.map((page) => `  <url><loc>${SITE_URL}${page}</loc></url>`),
     ...posts.map(

@@ -13,6 +13,12 @@ export default function MenuMobile() {
             </Link>
             <div className="flex items-center gap-2.5">
                 <Link
+                    href="/about"
+                    className="text-sm font-medium text-stone-600 transition hover:text-stone-900 dark:text-white/60 dark:hover:text-white"
+                >
+                    About
+                </Link>
+                <Link
                     href="/blog"
                     className="text-sm font-medium text-stone-600 transition hover:text-stone-900 dark:text-white/60 dark:hover:text-white"
                 >
