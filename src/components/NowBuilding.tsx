@@ -19,15 +19,15 @@ type Project = {
 
 const PROJECTS: Project[] = [
     {
-        name: 'Ekklo',
-        tagline: 'Fitness coaching platform',
-        status: 'full-time',
+        name: 'weshipit.today',
+        tagline: 'React Native app studio',
+        status: 'shipping',
         statusClass: 'text-emerald-600 dark:text-emerald-400',
         description:
-            'The all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging and payments. As Head of Mobile, I lead the apps — built with Expo, used daily by thousands of coaches and their athletes.',
-        stack: ['Expo', 'React Native', 'TypeScript', 'EAS'],
-        link: { href: 'https://www.ekklo.com', label: 'ekklo.com →' },
-        logo: '/clients/ekklo.png',
+            'My studio. We ship React Native apps end to end — turning your idea into a released product on the App Store and Play Store. Web and mobile for startups, fast.',
+        stack: ['React Native', 'Expo', 'Next.js', 'Nx'],
+        link: { href: 'https://weshipit.today', label: 'weshipit.today →' },
+        logo: '/clients/weshipit.png',
         featured: true,
     },
     {
@@ -51,14 +51,26 @@ const PROJECTS: Project[] = [
         symbol: '▦',
     },
     {
-        name: 'matthys.dev',
-        tagline: 'This website',
+        name: 'DearValentine',
+        tagline: 'Send a date invite to your crush',
         status: 'live',
         statusClass: 'text-sky-600 dark:text-sky-400',
         description:
-            'The site you are reading — blueprint design, MDX blog with syntax highlighting, RSS feed and a sprinkle of framer-motion. Built in the open, redesigned whenever the mood strikes.',
-        stack: ['Next.js', 'Tailwind', 'MDX'],
-        symbol: '</>',
+            'A playful side project — send a date invitation to your crush and let them RSVP. Built in a weekend, live for anyone to use.',
+        stack: ['Next.js', 'Tailwind', 'Supabase'],
+        link: { href: 'https://dear-valentine.vercel.app', label: 'dear-valentine →' },
+        symbol: '❤️',
+    },
+    {
+        name: 'Ekklo',
+        tagline: 'Fitness coaching platform',
+        status: 'building',
+        statusClass: 'text-amber-600 dark:text-amber-400',
+        description:
+            'The all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging and payments. I lead the mobile apps as Head of Mobile — built with Expo, used daily by thousands of coaches and their athletes.',
+        stack: ['Expo', 'React Native', 'TypeScript', 'EAS'],
+        link: { href: 'https://www.ekklo.com', label: 'ekklo.com →' },
+        logo: '/clients/ekklo.png',
     },
 ]
 
