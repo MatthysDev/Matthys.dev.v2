@@ -65,58 +65,70 @@ export default function PhoneShowcase() {
                 className="relative aspect-[9/19] w-full rounded-[2.5rem] border border-white/15 bg-gradient-to-b from-slate-900 to-slate-950 p-3 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-sky-300/20"
             >
                 <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-slate-950">
-                    {/* blueprint grid wallpaper */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.08)_1px,transparent_1px)] bg-[length:22px_22px]" />
-
-                    {/* scan line */}
-                    {!reducedMotion && (
-                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 animate-scan bg-gradient-to-b from-sky-300/15 to-transparent" />
-                    )}
-
-                    {/* dynamic island */}
-                    <div className="absolute left-1/2 top-2 z-20 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
-
-                    {/* status bar */}
-                    <div className="relative z-10 flex items-center justify-between px-5 pt-3 text-[10px] font-medium text-sky-200/80">
-                        <span>9:41</span>
-                        <span className="flex items-center gap-1">
-                            <span className="h-2 w-3 rounded-sm bg-sky-300/70" />
-                            <span className="h-2 w-2 rounded-full bg-sky-300/70" />
-                        </span>
-                    </div>
-
-                    {/* app grid */}
-                    <motion.div
-                        variants={reducedMotion ? undefined : container}
-                        initial={reducedMotion ? undefined : 'hidden'}
-                        animate={reducedMotion ? undefined : 'show'}
-                        className="grid grid-cols-2 gap-x-6 gap-y-4 px-7 pt-7"
+                    <div
+                        className="absolute inset-0"
                         style={
                             reducedMotion ? undefined : { transformStyle: 'preserve-3d' }
                         }
                     >
-                        {gridApps.map((app, i) => (
-                            <motion.div
-                                key={app.name}
-                                variants={reducedMotion ? undefined : item}
-                            >
-                                <AppIcon
-                                    app={app}
-                                    depth={reducedMotion ? 0 : i % 2 === 0 ? 18 : 30}
-                                />
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                        {/* blueprint grid wallpaper */}
+                        <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.08)_1px,transparent_1px)] bg-[length:22px_22px]" />
 
-                    {/* dock */}
-                    <div className="absolute inset-x-3 bottom-3 flex justify-around rounded-3xl bg-white/5 px-3 py-3 ring-1 ring-white/10 backdrop-blur-md">
-                        {dockApps.map((app) => (
-                            <AppIcon
-                                key={`dock-${app.name}`}
-                                app={app}
-                                showLabel={false}
-                            />
-                        ))}
+                        {/* scan line */}
+                        {!reducedMotion && (
+                            <div className="pointer-events-none absolute inset-x-0 top-0 h-16 animate-scan bg-gradient-to-b from-sky-300/15 to-transparent" />
+                        )}
+
+                        {/* dynamic island */}
+                        <div className="absolute left-1/2 top-2 z-20 h-5 w-20 -translate-x-1/2 rounded-full bg-black" />
+
+                        {/* status bar */}
+                        <div className="relative z-10 flex items-center justify-between px-5 pt-3 text-[10px] font-medium text-sky-200/80">
+                            <span>9:41</span>
+                            <span className="flex items-center gap-1">
+                                <span className="h-2 w-3 rounded-sm bg-sky-300/70" />
+                                <span className="h-2 w-2 rounded-full bg-sky-300/70" />
+                            </span>
+                        </div>
+
+                        {/* app grid */}
+                        <motion.div
+                            variants={reducedMotion ? undefined : container}
+                            initial={reducedMotion ? undefined : 'hidden'}
+                            animate={reducedMotion ? undefined : 'show'}
+                            className="grid grid-cols-2 gap-x-6 gap-y-4 px-7 pt-7"
+                            style={
+                                reducedMotion ? undefined : { transformStyle: 'preserve-3d' }
+                            }
+                        >
+                            {gridApps.map((app, i) => (
+                                <motion.div
+                                    key={app.name}
+                                    variants={reducedMotion ? undefined : item}
+                                    style={
+                                        reducedMotion
+                                            ? undefined
+                                            : { transformStyle: 'preserve-3d' }
+                                    }
+                                >
+                                    <AppIcon
+                                        app={app}
+                                        depth={reducedMotion ? 0 : i % 2 === 0 ? 18 : 30}
+                                    />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+
+                        {/* dock */}
+                        <div className="absolute inset-x-3 bottom-3 flex justify-around rounded-3xl bg-white/5 px-3 py-3 ring-1 ring-white/10 backdrop-blur-md">
+                            {dockApps.map((app) => (
+                                <AppIcon
+                                    key={`dock-${app.name}`}
+                                    app={app}
+                                    showLabel={false}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </motion.div>

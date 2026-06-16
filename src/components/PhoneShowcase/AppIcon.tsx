@@ -42,6 +42,7 @@ export default function AppIcon({ app, depth = 0, showLabel = true }: AppIconPro
                 )}
                 {app.status && (
                     <span
+                        aria-hidden="true"
                         className={`absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full ${
                             STATUS_DOT[app.status] ?? 'bg-stone-400'
                         }`}
