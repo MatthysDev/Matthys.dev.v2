@@ -35,10 +35,15 @@ const config: Config = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        scan: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(900%)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.6s ease-out both',
         marquee: 'marquee 35s linear infinite',
+        scan: 'scan 4.5s linear infinite',
       },
     },
   },
