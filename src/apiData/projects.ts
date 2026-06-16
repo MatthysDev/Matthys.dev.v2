@@ -55,6 +55,7 @@ const products: Project[] = [
             'A CLI that runs multiple Expo projects across multiple simulators and emulators in parallel — no more alt-tab dance. It reads each project’s identity, keeps a shared device registry, then routes, boots, starts Metro and deep-links the dev client. Node.js + TypeScript, MIT-licensed.',
         stack: ['Node.js', 'TypeScript', 'CLI'],
         img: '▦',
+        websiteUrl: 'https://matthysdev.github.io/simgrid/',
         status: 'building',
     },
     {

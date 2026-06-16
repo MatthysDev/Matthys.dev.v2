@@ -48,6 +48,7 @@ const PROJECTS: Project[] = [
         description:
             'One grid for all your simulators — run multiple Expo projects on multiple devices in parallel, without the alt-tab dance. It routes each project to the right simulator automatically.',
         stack: ['Node.js', 'TypeScript', 'CLI'],
+        link: { href: 'https://matthysdev.github.io/simgrid/', label: 'simgrid docs →' },
         symbol: '▦',
     },
     {
