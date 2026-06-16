@@ -7,10 +7,11 @@ export default function JsonLd() {
                 name: 'Matthys Ducrocq',
                 url: 'https://www.matthys.dev',
                 image: 'https://www.matthys.dev/pp.jpg',
-                jobTitle: 'React Native & Expo Developer',
+                jobTitle: 'Head of Mobile',
                 worksFor: {
                     '@type': 'Organization',
                     name: 'Ekklo',
+                    url: 'https://www.ekklo.com',
                 },
                 address: {
                     '@type': 'PostalAddress',

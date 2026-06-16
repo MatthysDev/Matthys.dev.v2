@@ -11,9 +11,9 @@ type Focus = {
 
 const NOW_FOCUS: Focus[] = [
     {
-        title: 'Building Ekklo full-time',
+        title: 'Leading mobile at Ekklo',
         detail:
-            'I’m CTO and cofounder of Ekklo, an all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging, and payments. The mobile apps are built with Expo and used daily by thousands of coaches and athletes.',
+            'As Head of Mobile at Ekklo, I lead the apps for an all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging, and payments. The mobile apps are built with Expo and used daily by thousands of coaches and athletes.',
     },
     {
         title: 'Building Leaf',

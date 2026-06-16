@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
         status: 'full-time',
         statusClass: 'text-emerald-600 dark:text-emerald-400',
         description:
-            'The all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging and payments. I work full-time on the mobile apps — built with Expo, used daily by thousands of coaches and their athletes.',
+            'The all-in-one platform for fitness coaches: training and nutrition programs, client tracking, messaging and payments. As Head of Mobile, I lead the apps — built with Expo, used daily by thousands of coaches and their athletes.',
         stack: ['Expo', 'React Native', 'TypeScript', 'EAS'],
         link: { href: 'https://www.ekklo.com', label: 'ekklo.com →' },
         logo: '/clients/ekklo.png',
