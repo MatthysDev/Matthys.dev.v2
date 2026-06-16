@@ -1,0 +1,119 @@
+---
+title: 'Running multiple Expo apps across simulators in parallel'
+description: "Simulator conflicts, port clashes and endless alt-tabbing across Expo apps. Here's the React Native workflow pain that made me build simgrid — a CLI to run several projects across iOS simulators and Android emulators in parallel."
+date: '2026-06-17'
+tags: ['expo', 'react-native', 'simgrid', 'cli', 'developer-tools', 'simulators', 'metro']
+---
+
+If you work on more than one [React Native](https://reactnative.dev) app at a
+time, you know the dance. I run several [Expo](https://expo.dev) projects side by
+side every day — client apps at [my studio, weshipit](/portfolio), plus
+[Leaf and simgrid](/now) on the side — and the hardest part was never the code.
+It was getting each app onto the **right simulator**, with its own
+[Metro bundler](https://docs.expo.dev/guides/customizing-metro/), without
+everything stepping on everything else.
+
+That daily friction is exactly why I built [**simgrid**](https://matthysdev.github.io/simgrid/),
+an open-source CLI that runs **multiple Expo apps across multiple iOS simulators
+and Android emulators in parallel**. This post is the story of the pain — and how
+the tool removes it.
+
+## The pain: parallel builds and simulator juggling
+
+Running one Expo app is easy: `npx expo run:ios`, pick a simulator, done. Running
+**three or four at once** is where it falls apart:
+
+- **Simulator conflicts.** Each project grabs whichever iOS Simulator it wants —
+  often the wrong one, or one already taken by another app. You end up with two
+  dev clients fighting over the same device.
+- **Port clashes.** Every project wants Metro on `8081`. Start a second one and
+  you're manually juggling `--port` flags and trying to remember which terminal
+  tab serves which bundle.
+- **The alt-tab dance.** Four terminals, four Metro instances, four simulators,
+  and no way to tell at a glance which [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+  is running where. You deep-link the wrong app into the wrong device and lose ten
+  minutes before you notice.
+- **Boot overhead.** Booting [iOS Simulators](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device)
+  and [Android emulators](https://developer.android.com/studio/run/emulator) by
+  hand, then starting Metro, then deep-linking the dev client — repeated for every
+  project, every morning.
+
+None of this is hard. It's just **death by a thousand papercuts** — the kind of
+repetitive setup that quietly eats an hour out of every day working in a
+multi-project or monorepo React Native setup.
+
+## What I tried first
+
+The usual escalation. First a pile of shell aliases. Then a `Procfile` and
+`concurrently` to fan out Metro instances. Then a half-broken bash script that
+booted simulators by UDID and tried to remember port assignments. Every version
+worked until I added one more project — and then the port math and device
+routing broke again.
+
+The real problem wasn't the commands. It was that **nothing kept track of which
+project belonged on which device.** I needed a small layer that owned that
+mapping so I didn't have to.
+
+## Enter simgrid
+
+[simgrid](https://matthysdev.github.io/simgrid/) is a Node.js + TypeScript CLI
+(MIT-licensed, on [npm as `simgrid-cli`](https://www.npmjs.com/package/simgrid-cli))
+that does exactly that one job: **route each Expo project to the correct
+simulator or emulator, run a dedicated Metro bundler per project, and remember
+the mapping** — so you can launch your whole grid of apps with a single command.
+
+```bash
+# install once, globally
+npm i -g simgrid-cli
+
+# from any Expo project
+simgrid init            # wires "start": "simgrid" into package.json
+simgrid                 # interactive device picker, then launch
+simgrid --profile ios+android   # launch a saved device set in one shot
+simgrid status          # see which project is mapped to which device, globally
+simgrid logs            # stream the device's system logs
+simgrid doctor          # check xcrun / adb / emulator are on your PATH
+simgrid stop            # stop this project's sessions and deregister
+```
+
+No config files to write. Pick your devices once with a `--profile` name and
+simgrid saves that set automatically — next time, `simgrid --profile ios+android`
+boots the simulators, starts Metro per project, and deep-links each
+[Expo dev client](https://docs.expo.dev/develop/development-builds/introduction/)
+to the device it belongs on.
+
+## How it works
+
+Under the hood simgrid keeps a **shared device registry** across all your
+projects. When you launch:
+
+1. It reads the **project's identity** (scheme / bundle id) so it knows which app
+   it's about to run.
+2. It **routes** that project to a device — interactively the first time, then
+   from the saved profile.
+3. It **boots** the simulator or emulator if it isn't already up.
+4. It **starts Metro** for that project on its own port.
+5. It **deep-links the dev client** so the right app opens on the right device.
+
+Because the registry is global, `simgrid status` from any project shows the whole
+grid — every project-to-device mapping at once. No more guessing which terminal
+owns which bundle.
+
+**Requirements:** Node ≥ 18, macOS + Xcode for iOS simulators, and `adb` +
+`emulator` on your PATH for Android. It's built for Expo
+[development builds](https://docs.expo.dev/develop/development-builds/introduction/) —
+the same workflow you already use with [EAS Build](https://docs.expo.dev/build/introduction/).
+
+## Try it
+
+If you've ever lost an afternoon to simulator roulette, this one's for you.
+
+<Callout>
+  simgrid is open source — [read the docs](https://matthysdev.github.io/simgrid/),
+  `npm i -g simgrid-cli`, and run `simgrid` from your project. If you build with
+  Expo or React Native, grab the [RSS feed](/rss.xml) — every post here comes from
+  real production work.
+</Callout>
+
+It scratches my own itch every single day. If it scratches yours too, I'd love to
+hear what's missing.
