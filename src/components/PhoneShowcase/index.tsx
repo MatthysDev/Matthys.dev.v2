@@ -120,12 +120,13 @@ export default function PhoneShowcase() {
                         </motion.div>
 
                         {/* dock */}
-                        <div className="absolute inset-x-3 bottom-3 flex justify-around rounded-3xl bg-white/5 px-3 py-3 ring-1 ring-white/10 backdrop-blur-md">
+                        <div className="absolute inset-x-3 bottom-3 flex justify-between rounded-3xl bg-white/5 px-4 py-3 ring-1 ring-white/10 backdrop-blur-md">
                             {dockApps.map((app) => (
                                 <AppIcon
                                     key={`dock-${app.name}`}
                                     app={app}
                                     showLabel={false}
+                                    size="sm"
                                 />
                             ))}
                         </div>

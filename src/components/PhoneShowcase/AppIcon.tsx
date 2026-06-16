@@ -16,10 +16,24 @@ type AppIconProps = {
     /** translateZ depth in px for the 3D parallax layers. 0 = flat. */
     depth?: number
     showLabel?: boolean
+    /** 'md' for the home grid, 'sm' for the dock (more breathing room). */
+    size?: 'sm' | 'md'
 }
 
-export default function AppIcon({ app, depth = 0, showLabel = true }: AppIconProps) {
+export default function AppIcon({
+    app,
+    depth = 0,
+    showLabel = true,
+    size = 'md',
+}: AppIconProps) {
     const reducedMotion = useReducedMotion()
+
+    // The phone screen is always dark, so icon glyphs/labels stay light
+    // regardless of the site's light/dark theme.
+    const tileSize =
+        size === 'sm'
+            ? 'h-10 w-10 text-xl md:h-11 md:w-11'
+            : 'h-12 w-12 text-2xl md:h-14 md:w-14'
 
     const tile = (
         <motion.div
@@ -28,7 +42,9 @@ export default function AppIcon({ app, depth = 0, showLabel = true }: AppIconPro
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             className="group/icon flex flex-col items-center gap-1.5"
         >
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-2xl ring-1 ring-white/20 backdrop-blur-md transition group-hover/icon:shadow-[0_0_18px_2px_rgba(56,189,248,0.45)] group-hover/icon:ring-sky-300/60 md:h-14 md:w-14">
+            <div
+                className={`relative flex items-center justify-center rounded-2xl bg-white/10 text-white ring-1 ring-white/20 backdrop-blur-md transition group-hover/icon:shadow-[0_0_18px_2px_rgba(56,189,248,0.45)] group-hover/icon:ring-sky-300/60 ${tileSize}`}
+            >
                 {app.logo ? (
                     <Image
                         src={app.logo}
