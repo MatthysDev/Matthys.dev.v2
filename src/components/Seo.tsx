@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 const SITE_URL = 'https://www.matthys.dev'
 const DEFAULT_DESC =
-    'Matthys Ducrocq — React Native & Expo developer from Lille. Building Ekklo full-time, plus Leaf and simgrid on the side, and writing about real-world mobile development.'
+    'Matthys Ducrocq — React Native & Expo developer from Lille and founder of weshipit. I build highly-rated mobile apps used daily by thousands, lead mobile at Ekklo, and write about real-world mobile development.'
 
 type SeoProps = {
     title?: string
