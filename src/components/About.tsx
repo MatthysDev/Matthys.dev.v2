@@ -11,10 +11,10 @@ export default function About() {
                 I build apps people actually use
             </h2>
             <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-stone-600 dark:text-white/60">
-                Six years in, I&apos;m a React Native &amp; Expo developer and founder of
-                weshipit. The apps I lead and build — like Ekklo — are used daily by
-                thousands and stay highly rated on the App Store and Google Play. I turn
-                ideas into shipped, maintained products.
+                Six years in, I&apos;m a React Native &amp; Expo developer — Head of Mobile
+                at Ekklo and a React Native dev at weshipit. The apps I build are used daily
+                by thousands and stay highly rated on the App Store and Google Play, because
+                I build them to be fast and to scale.
             </p>
 
             <div className="mt-10">

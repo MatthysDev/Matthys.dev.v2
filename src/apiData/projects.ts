@@ -94,10 +94,10 @@ const clientWork: Project[] = [
     {
         name: 'weshipit.today',
         category: 'client',
-        role: 'Founder',
-        description: 'My studio — web & mobile for startups.',
+        role: 'React Native Developer',
+        description: 'React Native app studio — web & mobile for startups.',
         longDescription:
-            'My own studio: web and mobile apps for startups and small teams, built in an Nx monorepo with a Storybook design system. It’s also home to Le Cross Platform Show, the francophone React Native podcast I co-host.',
+            'A React Native app studio building web and mobile apps for startups and small teams, in an Nx monorepo with a Storybook design system. I work there as a React Native developer, making apps fast and ready to scale. It’s also home to Le Cross Platform Show, the francophone React Native podcast.',
         stack: ['Next.js', 'Nx', 'React Native', 'Storybook'],
         img: '🚀',
         logo: '/clients/weshipit.png',

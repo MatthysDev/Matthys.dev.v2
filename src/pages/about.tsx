@@ -7,7 +7,7 @@ import ProofTiles from '@/components/ProofTiles'
 import { SectionKicker } from '@/components/Blueprint'
 
 const ABOUT_DESCRIPTION =
-    'Matthys Ducrocq — React Native & Expo developer from Lille and founder of weshipit. 6+ years building mobile apps with 3,000+ daily users, highly rated on the App Store and Google Play.'
+    'Matthys Ducrocq — React Native & Expo developer from Lille. Head of Mobile at Ekklo and React Native dev at weshipit. 6+ years building mobile apps with 3,000+ daily users, highly rated on the App Store and Google Play.'
 
 export default function About() {
     return (
@@ -26,7 +26,12 @@ export default function About() {
                         <strong className="font-semibold text-stone-900 dark:text-white">
                             React Native &amp; Expo developer
                         </strong>{' '}
-                        from Lille, France, and the founder of{' '}
+                        from Lille, France. For{' '}
+                        <strong className="font-semibold text-stone-900 dark:text-white">
+                            6+ years
+                        </strong>{' '}
+                        I&apos;ve built mobile apps that ship to real users — and stay
+                        shipped. At{' '}
                         <a
                             href="https://weshipit.today"
                             target="_blank"
@@ -34,13 +39,9 @@ export default function About() {
                             className="font-medium text-stone-900 underline underline-offset-4 transition hover:opacity-70 dark:text-white"
                         >
                             weshipit
-                        </a>
-                        , my app studio. For{' '}
-                        <strong className="font-semibold text-stone-900 dark:text-white">
-                            6+ years
-                        </strong>{' '}
-                        I&apos;ve built mobile apps that ship to real users — and stay
-                        shipped.
+                        </a>{' '}
+                        I work as a React Native developer, making apps fast and ready to
+                        scale.
                     </p>
 
                     <p>

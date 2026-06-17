@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
         status: 'shipping',
         statusClass: 'text-emerald-600 dark:text-emerald-400',
         description:
-            'My studio. We ship React Native apps end to end — turning your idea into a released product on the App Store and Play Store. Web and mobile for startups, fast.',
+            'The React Native app studio where I work as a developer. We ship apps end to end — turning ideas into released products on the App Store and Play Store, built to be fast and to scale.',
         stack: ['React Native', 'Expo', 'Next.js', 'Nx'],
         link: { href: 'https://weshipit.today', label: 'weshipit.today →' },
         logo: '/clients/weshipit.png',
