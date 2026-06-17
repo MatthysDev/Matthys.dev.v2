@@ -3,7 +3,7 @@ import Link from 'next/link'
 import CustomLayout from '@/components/CustomLayout'
 import Reveal from '@/components/Reveal'
 import Seo from '@/components/Seo'
-import Stats from '@/components/Stats'
+import ProofTiles from '@/components/ProofTiles'
 import { SectionKicker } from '@/components/Blueprint'
 
 const ABOUT_DESCRIPTION =
@@ -15,12 +15,12 @@ export default function About() {
             <Seo title="About" description={ABOUT_DESCRIPTION} path="/about" />
 
             <Reveal>
-                <SectionKicker index="06" label="about" />
-                <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                <SectionKicker index="06" label="about" className="text-center" />
+                <h1 className="mt-3 text-center text-3xl font-bold tracking-tight md:text-4xl">
                     About me
                 </h1>
 
-                <div className="mt-6 max-w-2xl space-y-5 leading-relaxed text-stone-600 dark:text-white/70">
+                <div className="mx-auto mt-6 max-w-2xl space-y-5 leading-relaxed text-stone-600 dark:text-white/70">
                     <p>
                         I&apos;m Matthys Ducrocq — a{' '}
                         <strong className="font-semibold text-stone-900 dark:text-white">
@@ -119,12 +119,12 @@ export default function About() {
                 </div>
             </Reveal>
 
-            <Reveal className="mt-4">
-                <Stats />
+            <Reveal className="mt-12">
+                <ProofTiles />
             </Reveal>
 
             <Reveal className="mt-16">
-                <p className="text-stone-600 dark:text-white/60">
+                <p className="text-center text-stone-600 dark:text-white/60">
                     See what I&apos;ve shipped on the{' '}
                     <Link
                         href="/portfolio"

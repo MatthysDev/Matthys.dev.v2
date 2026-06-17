@@ -16,6 +16,18 @@ export type Project = {
     logo?: string
     websiteUrl?: string
     status?: 'live' | 'building' | 'shipped' | 'open-source'
+    /** Year or range, e.g. '2024' or '2022–2024'. Shown on the card. */
+    year?: string
+    /** App Store listing URL (shows an App Store button in the modal). */
+    appStoreUrl?: string
+    /** Google Play listing URL (shows a Play Store button in the modal). */
+    playStoreUrl?: string
+    /** Store rating, e.g. '4.8'. Shown with a star in the modal. */
+    rating?: string
+    /** One-line measurable impact, e.g. '3,000+ daily users'. Shown in the modal. */
+    impact?: string
+    /** Link to a case-study / write-up (internal or external). */
+    caseStudyUrl?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -34,6 +46,7 @@ const products: Project[] = [
         logo: '/clients/ekklo.png',
         websiteUrl: 'https://www.ekklo.com',
         status: 'live',
+        impact: '3,000+ daily active coaches & athletes',
     },
     {
         name: 'Leaf',

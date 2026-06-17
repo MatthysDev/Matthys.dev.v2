@@ -63,17 +63,17 @@ export default function Now() {
             <Seo title="Now" path="/now" />
 
             <Reveal>
-                <SectionKicker index="05" label="now" />
-                <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+                <SectionKicker index="05" label="now" className="text-center" />
+                <h1 className="mt-3 text-center text-3xl font-bold tracking-tight md:text-4xl">
                     What I&apos;m doing now
                 </h1>
-                <p className="mt-4 max-w-2xl leading-relaxed text-stone-600 dark:text-white/60">
+                <p className="mx-auto mt-4 max-w-2xl text-center leading-relaxed text-stone-600 dark:text-white/60">
                     I&apos;m Matthys, a React Native and Expo developer in Lille. Here&apos;s
                     what I&apos;m actually working on right now: running my studio weshipit,
                     leading mobile at Ekklo, building two side projects, writing, and staying
                     close to the community.
                 </p>
-                <p className="mt-3 font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-white/40">
+                <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-white/40">
                     Last updated June 2026
                 </p>
             </Reveal>

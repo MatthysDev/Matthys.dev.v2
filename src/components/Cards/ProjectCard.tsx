@@ -70,6 +70,50 @@ function StackTags({ stack }: { stack?: string[] }) {
     )
 }
 
+function StarRating({ rating }: { rating: string }) {
+    return (
+        <span className="inline-flex items-center gap-1 font-mono text-sm font-semibold text-stone-900 dark:text-white">
+            <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-3.5 w-3.5 text-amber-500 dark:text-amber-400"
+                aria-hidden
+            >
+                <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.785 1.401 8.168L12 18.896l-7.335 3.857 1.401-8.168L.132 9.21l8.2-1.192z" />
+            </svg>
+            {rating}
+        </span>
+    )
+}
+
+function ActionLink({
+    href,
+    children,
+    primary,
+}: {
+    href: string
+    children: React.ReactNode
+    primary?: boolean
+}) {
+    const external = /^https?:\/\//.test(href)
+    const base =
+        'inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition'
+    const style = primary
+        ? 'bg-stone-900 text-cream hover:opacity-90 dark:bg-white dark:text-black'
+        : 'border border-stone-900/20 text-stone-700 hover:border-stone-900/50 dark:border-white/20 dark:text-white/80 dark:hover:border-sky-300/50'
+    return (
+        <a
+            href={href}
+            target={external ? '_blank' : undefined}
+            rel={external ? 'noopener noreferrer' : undefined}
+            onClick={(e) => e.stopPropagation()}
+            className={`${base} ${style}`}
+        >
+            {children}
+        </a>
+    )
+}
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, id, selectedId, setSelectedId }) => {
     const isSelected = selectedId === id
     const hasUrl = isValidUrl(project.websiteUrl)
@@ -87,9 +131,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id, selectedId, setS
                 <CornerMarks />
                 <div className="flex items-start justify-between">
                     <Symbol project={project} size="sm" />
-                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-sky-300/40">
-                        {index}
-                    </span>
+                    <div className="flex flex-col items-end">
+                        <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-sky-300/40">
+                            {index}
+                        </span>
+                        {project.year && (
+                            <span className="mt-1 font-mono text-[10px] tracking-wider text-stone-400 dark:text-white/30">
+                                {project.year}
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 <h2 className="mt-4 text-lg font-bold tracking-tight text-stone-900 dark:text-white">
@@ -170,15 +221,43 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, id, selectedId, setS
 
                             <StackTags stack={project.stack} />
 
-                            {hasUrl && (
-                                <a
-                                    href={project.websiteUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-6 inline-flex items-center gap-1 rounded-full bg-stone-900 px-5 py-2.5 text-sm font-semibold text-cream transition-opacity hover:opacity-90 dark:bg-white dark:text-black"
-                                >
-                                    Visit {project.name} -&gt;
-                                </a>
+                            {(project.rating || project.impact) && (
+                                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-dashed border-stone-900/15 pt-4 dark:border-white/10">
+                                    {project.rating && <StarRating rating={project.rating} />}
+                                    {project.impact && (
+                                        <span className="text-sm text-stone-600 dark:text-white/60">
+                                            {project.impact}
+                                        </span>
+                                    )}
+                                </div>
+                            )}
+
+                            {(hasUrl ||
+                                project.appStoreUrl ||
+                                project.playStoreUrl ||
+                                project.caseStudyUrl) && (
+                                <div className="mt-6 flex flex-wrap gap-2">
+                                    {project.appStoreUrl && (
+                                        <ActionLink href={project.appStoreUrl}>
+                                            App Store
+                                        </ActionLink>
+                                    )}
+                                    {project.playStoreUrl && (
+                                        <ActionLink href={project.playStoreUrl}>
+                                            Google Play
+                                        </ActionLink>
+                                    )}
+                                    {hasUrl && (
+                                        <ActionLink href={project.websiteUrl!} primary>
+                                            Visit {project.name} -&gt;
+                                        </ActionLink>
+                                    )}
+                                    {project.caseStudyUrl && (
+                                        <ActionLink href={project.caseStudyUrl}>
+                                            Read the case study →
+                                        </ActionLink>
+                                    )}
+                                </div>
                             )}
                         </motion.div>
                     </motion.div>
