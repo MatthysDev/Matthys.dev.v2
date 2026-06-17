@@ -105,8 +105,9 @@ export default function About() {
                         >
                             App.js Conf
                         </a>{' '}
-                        attendee and co-host of Le Cross Platform Show, the francophone React
-                        Native podcast. I build in the open too — tools like{' '}
+                        attendee, and I occasionally join Le Cross Platform Show, the
+                        francophone React Native podcast. I build in the open too — tools
+                        like{' '}
                         <a
                             href="https://matthysdev.github.io/simgrid/"
                             target="_blank"

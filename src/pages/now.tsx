@@ -38,7 +38,7 @@ const NOW_FOCUS: Focus[] = [
     {
         title: 'Community: App.js Conf and the podcast',
         detail:
-            'Three-time App.js Conf attendee, and co-host of Le Cross Platform Show, the francophone React Native podcast with weshipit.',
+            'Three-time App.js Conf attendee, and I occasionally join Le Cross Platform Show, the francophone React Native podcast by weshipit.',
     },
 ]
 
