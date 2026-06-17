@@ -264,6 +264,18 @@ const lab: Project[] = [
         status: 'open-source',
     },
     {
+        name: 'raycast-tailwind-colors',
+        category: 'lab',
+        role: 'Open source',
+        description: 'Raycast extension for Tailwind colors.',
+        longDescription:
+            'A Raycast extension to quickly search the Tailwind CSS color palette and copy any shade as hex, RGB or a Tailwind class — without leaving your keyboard.',
+        stack: ['Raycast', 'TypeScript', 'React'],
+        img: '🌈',
+        websiteUrl: 'https://github.com/MatthysDev/raycast-tailwind-colors',
+        status: 'open-source',
+    },
+    {
         name: 'DearValentine',
         category: 'lab',
         role: 'Side project',
