@@ -46,6 +46,8 @@ const products: Project[] = [
         logo: '/clients/ekklo.png',
         websiteUrl: 'https://www.ekklo.com',
         status: 'live',
+        appStoreUrl: 'https://apps.apple.com/fr/app/ekklo/id6499107970',
+        rating: '4.7 · 198 ratings',
         impact: '3,000+ daily active coaches & athletes',
     },
     {
