@@ -52,6 +52,17 @@ const PROJECTS: Project[] = [
         symbol: '▦',
     },
     {
+        name: 'Hush',
+        tagline: 'Mute Discord while you dictate',
+        status: 'shipped',
+        statusClass: 'text-violet-600 dark:text-violet-400',
+        description:
+            'A tiny macOS menu-bar app — my first Electron project. One push-to-talk key mutes Discord and starts Wispr Flow dictation, then unmutes on release, so I never broadcast my dictation to a whole call again.',
+        stack: ['Electron', 'TypeScript', 'nut-js'],
+        link: { href: '/blog/hush-mute-discord-while-dictating', label: 'read the story →' },
+        symbol: '🤫',
+    },
+    {
         name: 'DearValentine',
         tagline: 'Send a date invite to your crush',
         status: 'live',

@@ -1,0 +1,107 @@
+---
+title: 'Hush: muting Discord while I dictate, and my first taste of Electron'
+description: "I dictate with Wispr Flow all day, but every time I did it on a Discord call the whole room heard me. So I built Hush — a tiny macOS menu-bar app that mutes Discord and starts dictation from one key. It was my first Electron project, and it was way more fun than I expected."
+date: '2026-07-01'
+tags: ['electron', 'macos', 'wispr-flow', 'discord', 'developer-tools', 'typescript', 'side-project']
+---
+
+I dictate a _lot_. [Wispr Flow](https://wisprflow.ai) has quietly become the way I
+write half of everything — messages, commit bodies, notes, the first draft of
+posts like this one. Hold a key, talk, and clean text appears wherever my cursor
+is. It's great.
+
+Until you do it on a [Discord](https://discord.com) call.
+
+## The problem: dictating out loud, on an open mic
+
+Here's the scene. I'm pair-programming or in a casual Discord voice channel, and I
+want to fire off a quick message with Wispr. So I start dictating — out loud,
+because that's how dictation works — and the entire call hears me narrate my own
+sentence, punctuation and all. Everyone gets a live feed of _"hey can you check
+the PR comma when you get a sec question mark."_
+
+The fix is obvious and annoying: **mute Discord, dictate, then unmute.** Four
+actions, every single time, in the right order. Miss one and you either broadcast
+your dictation or come back from a message muted and wonder why nobody can hear
+you. I did both, repeatedly.
+
+I wanted **one key**. Press and hold: Discord goes muted and Wispr starts
+listening. Release: Wispr stops and Discord comes back. Push-to-talk, but for
+_not_ talking to the room.
+
+## Enter Hush
+
+[**Hush**](/portfolio) is a tiny macOS **menu-bar app** that does exactly that. One
+configurable trigger key wires two other apps together:
+
+- **On press** → tap Discord's mute shortcut, then start Wispr dictation.
+- **On release** → stop Wispr dictation, then tap Discord's unmute shortcut.
+
+It lives in the menu bar with no dock icon, the tray glyph flips between a _safe_
+(muted) and a _live_ (mic open) state, and everything — the trigger, Discord's
+combo, Wispr's combo, hold vs. toggle mode — is configurable from a little
+settings window. That's the whole product. It does one thing so I never think
+about it again.
+
+## My first Electron project
+
+This was my first time actually building with [Electron](https://www.electronjs.org),
+and honestly? It was a great time. I write [React Native](/portfolio) all day, so a
+desktop runtime that's "just" Chromium plus Node felt refreshingly direct: a
+`main` process for the tray, IPC and native bits, a plain HTML/CSS/JS window for
+settings, and a `preload` bridge in between. I had a menu-bar app running in an
+afternoon.
+
+The fun part was everything _around_ the browser window — the native OS stuff you
+don't touch in a mobile framework. To make Hush work I needed to:
+
+- **Listen to the keyboard globally**, even when no window is focused, with
+  [`uiohook-napi`](https://github.com/SnosMe/uiohook-napi).
+- **Synthesize keystrokes** into _other_ apps — Discord's and Wispr's hotkeys —
+  with [`@nut-tree-fork/nut-js`](https://github.com/nut-tree/nut.js).
+- Ask macOS for **Accessibility** and **Input Monitoring** permissions, and send
+  the user straight to the right System Settings pane.
+
+## The bugs that made it interesting
+
+A tool this small has no right to be as tricky as it was. Three problems ate most
+of my time — and all three came from the same root: **the app both listens to the
+keyboard and types on the keyboard.**
+
+**1. It hears itself.** `uiohook` is a global listener, so it observes the very
+keystrokes `nut-js` injects. When Hush synthesized Discord's mute combo, its own
+listener saw those keys, decided "the trigger changed!", and flapped mute on and
+off forever. The fix is a small `SynthGuard` that marks the window during which
+Hush is injecting — plus a short grace period for the lag between posting a key
+event and observing it back — so self-generated events get dropped.
+
+**2. Held modifiers leak.** If your trigger has modifiers (say `⌃⌥` something), you
+are _physically holding them down_ while Hush injects. Those modifiers bleed into
+every synthetic chord, so Discord sees `⌃⌥⌘X` instead of the `⌘X` you configured
+and never matches. Hush synth-_releases_ the trigger's modifiers first to
+neutralize them at the OS level, then injects clean combos.
+
+**3. The OS coalesces simultaneous hotkeys.** Fire two global shortcuts in the same
+instant and macOS will happily merge them and drop one — so the mute never lands.
+Sequencing the two taps with a tiny gap between them fixes it.
+
+None of these are things I'd have predicted from the outside. They're the reason
+the core logic — the state machine, the guard, the combo math — is fully
+unit-tested against fake engines, with no real keyboard in the loop.
+
+## Would I reach for Electron again?
+
+Yeah. For a personal macOS utility that needed global input and a bit of UI, it
+was the fastest path from _"this annoys me"_ to _"this is fixed forever."_ Hush is
+maybe 1,000 lines of TypeScript, it runs in my menu bar every day, and I haven't
+thought about muting Discord since.
+
+<Callout>
+  Hush is a personal tool I built for myself, in TypeScript on Electron. If you
+  dictate on calls too, the idea ports to anything: one key, mute the room, start
+  dictating, release to come back. Grab the [RSS feed](/rss.xml) — I write these
+  up as I build them.
+</Callout>
+
+Sometimes the best projects are the ones that scratch an itch you feel five times
+a day. This one took a weekend and paid itself back in a week.

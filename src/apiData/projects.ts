@@ -74,6 +74,18 @@ const products: Project[] = [
         status: 'building',
     },
     {
+        name: 'Hush',
+        category: 'product',
+        role: 'Solo — first Electron app',
+        description: 'Mute Discord while you dictate with Wispr Flow.',
+        longDescription:
+            'A tiny macOS menu-bar app that wires two other apps together: one push-to-talk key mutes Discord and starts Wispr Flow dictation, then unmutes and stops on release — so I never broadcast my dictation to a whole call again. My first Electron project: a global keyboard listener (uiohook-napi), synthesized hotkeys (nut-js), and a fully unit-tested state machine, in ~1,000 lines of TypeScript.',
+        stack: ['Electron', 'TypeScript', 'nut-js', 'macOS'],
+        img: '🤫',
+        status: 'shipped',
+        caseStudyUrl: '/blog/hush-mute-discord-while-dictating',
+    },
+    {
         name: 'matthys.dev',
         category: 'product',
         role: 'Solo — design & dev',
