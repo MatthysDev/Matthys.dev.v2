@@ -53,13 +53,14 @@ const PROJECTS: Project[] = [
     },
     {
         name: 'Hush',
-        tagline: 'Mute Discord while you dictate',
-        status: 'shipped',
-        statusClass: 'text-violet-600 dark:text-violet-400',
+        tagline: 'A failed experiment (and my first Electron app)',
+        status: 'fail',
+        statusClass: 'text-rose-600 dark:text-rose-400',
         description:
-            'A tiny macOS menu-bar app — my first Electron project. One push-to-talk key mutes Discord and starts Wispr Flow dictation, then unmutes on release, so I never broadcast my dictation to a whole call again.',
+            'My first Electron project: a macOS menu-bar app meant to mute Discord and start Wispr Flow dictation from one key. It failed on the premise — Discord ignores a synthesized keypress, so the mute never fired — but it was a genuinely fun build, and the idea would work for any app that does accept intercepted shortcuts.',
         stack: ['Electron', 'TypeScript', 'nut-js'],
-        link: { href: '/blog/hush-mute-discord-while-dictating', label: 'read the story →' },
+        link: { href: '/blog/hush-mute-discord-while-dictating', label: 'read the post-mortem →' },
+        logo: '/projects/hush.png',
         symbol: '🤫',
     },
     {

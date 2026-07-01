@@ -15,7 +15,7 @@ export type Project = {
     /** Path to a logo in /public/clients (clients). */
     logo?: string
     websiteUrl?: string
-    status?: 'live' | 'building' | 'shipped' | 'open-source'
+    status?: 'live' | 'building' | 'shipped' | 'open-source' | 'fail'
     /** Year or range, e.g. '2024' or '2022–2024'. Shown on the card. */
     year?: string
     /** App Store listing URL (shows an App Store button in the modal). */
@@ -77,12 +77,13 @@ const products: Project[] = [
         name: 'Hush',
         category: 'product',
         role: 'Solo — first Electron app',
-        description: 'Mute Discord while you dictate with Wispr Flow.',
+        description: 'A failed experiment to mute Discord while I dictate.',
         longDescription:
-            'A tiny macOS menu-bar app that wires two other apps together: one push-to-talk key mutes Discord and starts Wispr Flow dictation, then unmutes and stops on release — so I never broadcast my dictation to a whole call again. My first Electron project: a global keyboard listener (uiohook-napi), synthesized hotkeys (nut-js), and a fully unit-tested state machine, in ~1,000 lines of TypeScript.',
+            'A macOS menu-bar app: one push-to-talk key was meant to mute Discord and start Wispr Flow dictation, then unmute on release. It failed on the core premise — Discord honors a real physical keypress for its mute hotkey but ignores a synthesized/injected one, so the mute never actually fired. Still my first Electron project and a genuinely fun one: a global keyboard listener (uiohook-napi), synthesized hotkeys (nut-js), and a fully unit-tested state machine in ~1,000 lines of TypeScript. The pattern would work great for any app that does accept intercepted shortcuts — just not Discord.',
         stack: ['Electron', 'TypeScript', 'nut-js', 'macOS'],
         img: '🤫',
-        status: 'shipped',
+        logo: '/projects/hush.png',
+        status: 'fail',
         caseStudyUrl: '/blog/hush-mute-discord-while-dictating',
     },
     {

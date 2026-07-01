@@ -22,6 +22,7 @@ const STATUS_STYLES: Record<NonNullable<Project['status']>, string> = {
     building: 'text-amber-600 dark:text-amber-400',
     shipped: 'text-stone-500 dark:text-white/50',
     'open-source': 'text-sky-600 dark:text-sky-400',
+    fail: 'text-rose-600 dark:text-rose-400',
 }
 
 function Symbol({ project, size }: { project: Project; size: 'sm' | 'lg' }) {
