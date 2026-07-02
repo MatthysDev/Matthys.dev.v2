@@ -71,10 +71,10 @@ body {
 /* Blueprint graph-paper background — fine grid + major lines every 5 cells */
 .blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(28, 25, 23, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 25, 23, 0.045) 1px, transparent 1px),
-    linear-gradient(to right, rgba(28, 25, 23, 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 25, 23, 0.09) 1px, transparent 1px);
+    linear-gradient(to right, rgba(28, 25, 23, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 25, 23, 0.025) 1px, transparent 1px),
+    linear-gradient(to right, rgba(28, 25, 23, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 25, 23, 0.05) 1px, transparent 1px);
   background-size:
     24px 24px,
     24px 24px,
@@ -83,10 +83,10 @@ body {
 }
 .dark .blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(147, 197, 253, 0.045) 1px, transparent 1px),
-    linear-gradient(to right, rgba(147, 197, 253, 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(147, 197, 253, 0.09) 1px, transparent 1px);
+    linear-gradient(to right, rgba(147, 197, 253, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(147, 197, 253, 0.025) 1px, transparent 1px),
+    linear-gradient(to right, rgba(147, 197, 253, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(147, 197, 253, 0.05) 1px, transparent 1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
