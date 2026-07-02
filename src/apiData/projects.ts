@@ -76,14 +76,15 @@ const products: Project[] = [
     {
         name: 'Hush',
         category: 'product',
-        role: 'Solo — first Electron app',
-        description: 'A failed experiment to mute Discord while I dictate.',
+        role: 'Solo — my first Electron app, now shipped',
+        description: 'Mute Discord while you dictate — the fail I turned into a shipped app.',
         longDescription:
-            'A macOS menu-bar app: one push-to-talk key was meant to mute Discord and start Wispr Flow dictation, then unmute on release. It failed on the core premise — Discord honors a real physical keypress for its mute hotkey but ignores a synthesized/injected one, so the mute never actually fired. Still my first Electron project and a genuinely fun one: a global keyboard listener (uiohook-napi), synthesized hotkeys (nut-js), and a fully unit-tested state machine in ~1,000 lines of TypeScript. The pattern would work great for any app that does accept intercepted shortcuts — just not Discord.',
-        stack: ['Electron', 'TypeScript', 'nut-js', 'macOS'],
+            'A tiny macOS & Windows menu-bar app: hold the push-to-talk shortcut you already use in Wispr Flow and Hush mutes your Discord mic while you talk, then unmutes on release — so the call never hears you dictate. It started as a failure: the first version synthesized Discord\'s mute hotkey, and Discord ignores injected keystrokes, so the mute never fired. Two pivots fixed it — mute Discord over its own RPC socket (SET_VOICE_SETTINGS) instead of a fake keypress, and realise I never needed to synthesize Wispr at all (I press that shortcut myself; Hush just detects it and mutes in parallel). That deleted the entire keystroke-synthesis layer — nut-js, the self-observation guard, the modifier masking — and the app got smaller and actually works. Now open-source (MIT), installable via Homebrew, ~1,000 lines, fully unit-tested.',
+        stack: ['Electron', 'TypeScript', 'Discord RPC', 'macOS', 'Windows'],
         img: '🤫',
         logo: '/projects/hush.png',
-        status: 'fail',
+        websiteUrl: 'https://matthysdev.github.io/hush/',
+        status: 'open-source',
         caseStudyUrl: '/blog/hush-mute-discord-while-dictating',
     },
     {

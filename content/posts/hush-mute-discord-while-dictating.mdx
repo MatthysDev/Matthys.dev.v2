@@ -1,8 +1,8 @@
 ---
-title: 'Hush: a failed experiment to mute Discord while I dictate (and my first Electron app)'
-description: "I dictate with Wispr Flow all day, and on Discord calls the whole room heard me. So I built Hush — a macOS menu-bar app to mute Discord and dictate from one key. It didn't work: Discord honors a real keypress but ignores a synthesized one. Here's the post-mortem — and why the idea still holds for other apps."
+title: 'Hush: I failed to mute Discord while I dictate — then I shipped it'
+description: "I dictate with Wispr Flow all day, and on Discord calls the whole room heard me. So I built Hush — a macOS menu-bar app to mute Discord from one key. First it failed: Discord ignores synthesized keystrokes. Then a pivot to Discord's RPC — and deleting the entire keystroke-synthesis layer — turned the fail into a shipped, open-source app for macOS & Windows."
 date: '2026-07-01'
-tags: ['electron', 'macos', 'wispr-flow', 'discord', 'developer-tools', 'typescript', 'post-mortem', 'fail']
+tags: ['electron', 'macos', 'wispr-flow', 'discord', 'developer-tools', 'typescript', 'post-mortem', 'open-source']
 ---
 
 I dictate a _lot_. [Wispr Flow](https://wisprflow.ai) has quietly become the way I
@@ -12,9 +12,10 @@ is. It's great.
 
 Until you do it on a [Discord](https://discord.com) call.
 
-This is the story of a small tool I built to fix that — and why it **didn't
-work**. Spoiler: it was still one of the more fun things I've built, and it taught
-me exactly where the wall is.
+This is the story of a small tool I built to fix that, how it **hit a wall and
+failed**, and how a change of approach a week later turned it into something I
+actually **shipped**. Spoiler: the version that works does _less_ than the one
+that didn't.
 
 ## The problem: dictating out loud, on an open mic
 
@@ -92,36 +93,55 @@ Hush — "let a background app press Discord's hotkey for you" — simply isn't
 something Discord allows. That was the _"Discord ne se mute jamais"_ bug, and it
 turned out not to be a bug in my code at all. It was the design.
 
-## So it's a fail — but a useful one
+## The wall wasn't the end
 
-I could have brute-forced around it (drive Discord's actual mute state through
-another channel), but at that point I'm fighting the app instead of using a
-shortcut, and the whole appeal — _small, dumb, one key_ — is gone. So Hush goes in
-the graveyard. Honest label: **failed experiment.**
+I almost filed Hush under _failed experiment_ and moved on. Then two things
+clicked.
 
-What I don't regret:
+**One: stop pressing keys _at_ Discord — talk to it directly.** Discord runs a
+local **RPC/IPC socket**, and it exposes exactly what I need:
+`SET_VOICE_SETTINGS { mute }`. No hotkey, no synthesized event, nothing to
+convince Discord is "real" — a direct call that mutes the mic, and it lands
+**every single time.** The thing Discord refused as a fake keypress, it happily
+does over its own API.
 
-- It was my **first Electron app**, start to finish, and I'd reach for Electron
-  again without hesitating for a small native-ish utility.
-- The interesting parts — the global listener, the self-observation guard, the
-  combo math — are all **unit-tested** against fake engines, and I learned a
-  surprising amount about how macOS routes and distinguishes input events.
-- I now know _exactly_ where synthesized input stops working: it's per-app, and
-  some apps deliberately refuse it.
+**Two — and this is the one that actually mattered: I never needed to synthesize
+Wispr either.** Look at what I'd been doing: I press a trigger, and Hush _re-types_
+my Wispr shortcut for me. But I'm already holding a key — so why not make that key
+simply **be** my Wispr shortcut? Wispr reacts to my real press natively (it always
+did). Hush doesn't have to type anything at all. It just needs to **notice** I'm
+holding the shortcut and mute Discord alongside it.
 
-And here's the part that keeps the idea alive: **the pattern is sound for any app
-that _does_ accept intercepted shortcuts.** Wispr did. Plenty of tools do. A
-"press one key, orchestrate two other apps' hotkeys" bridge is genuinely useful —
-a mute-while-you-dictate, a start-recording-and-hide-notifications, a
-launch-this-and-focus-that. Discord was just the one target that says no. Point
-Hush at a cooperative app and the exact same 1,000 lines work.
+That one realization deleted the entire hardest half of the app. The keystroke
+synthesis (`nut-js`), the `SynthGuard` that stopped it hearing itself, the
+modifier-masking dance — all the machinery behind the two nastiest bugs — **gone.**
+What's left is tiny: a global listener notices my push-to-talk shortcut, and Hush
+mutes Discord over RPC while I hold it. Release, and the mic comes back. One
+shortcut, zero synthesized keys.
+
+## So it shipped
+
+The graveyard label came off. Hush is **live and open-source**:
+
+- 🔗 **[matthysdev.github.io/hush](https://matthysdev.github.io/hush/)** — the
+  landing page, with the whole setup walk-through.
+- 🍺 `brew install --cask matthysdev/hush/hush` on macOS, or a one-click installer
+  on Windows.
+- 🧑‍💻 [Source on GitHub](https://github.com/MatthysDev/hush) — MIT, ~1,000 lines,
+  still fully unit-tested.
+
+It's a smaller, calmer app than the one I set out to build — and it works
+precisely _because_ it does less. The failed version fought the OS to inject keys
+into two apps. The shipped version injects nothing: it mirrors a shortcut I
+already press and makes one honest API call.
 
 <Callout>
-  Hush didn't ship, but I'd still build this shape again. If you know a couple of
-  apps whose global shortcuts _do_ honor synthesized keys, one trigger key can
-  choreograph them beautifully. Grab the [RSS feed](/rss.xml) — I write up the
-  wins and the fails.
+  The lesson I'm keeping: when an app refuses your synthesized input, don't fight
+  it — ask whether you needed to synthesize anything at all. Half the time the
+  real interface (an RPC socket, a shortcut you're already pressing) was sitting
+  right there. Grab the [RSS feed](/rss.xml) — I write up the wins, the fails, and
+  the fails that quietly turn into wins.
 </Callout>
 
-Sometimes the best thing a weekend project gives you isn't the tool — it's a very
-precise map of where the wall is.
+Sometimes a weekend project just gives you a precise map of where the wall is —
+and sometimes, a week later, you notice there was a door.
