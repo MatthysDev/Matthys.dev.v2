@@ -1,52 +1,44 @@
 import type { Config } from 'tailwindcss'
-import typography from '@tailwindcss/typography'
 
+/**
+ * Utilities only — `src/styles/tailwind.css` pulls in `@tailwind utilities`
+ * and nothing else, so preflight never touches the hand-written v2 layer.
+ * The tokens below mirror the custom properties in `src/styles/v2.css` so a
+ * utility and a component class can never disagree about the palette.
+ */
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './content/**/*.mdx',
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        cream: '#FAF5EB',
+        paper: 'var(--paper)',
+        ink: {
+          DEFAULT: 'var(--ink)',
+          soft: 'var(--ink-soft)',
+          faint: 'var(--ink-faint)',
+        },
+        lime: {
+          DEFAULT: 'var(--lime)',
+          deep: 'var(--lime-deep)',
+        },
+        coral: 'var(--coral)',
+        violet: 'var(--violet)',
+        sky: 'var(--sky)',
+        teal: 'var(--teal)',
+        sand: 'var(--sand)',
+        blue: 'var(--blue)',
+        pink: 'var(--pink)',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-      boxShadow: {
-        glow: '0 0 24px 2px rgba(255, 255, 255, 0.18)',
-        'glow-sm': '0 0 14px 1px rgba(255, 255, 255, 0.12)',
-      },
-      keyframes: {
-        'fade-in': {
-          from: { opacity: '0' },
-          to: { opacity: '1' },
-        },
-        marquee: {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-50%)' },
-        },
-        scan: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(900%)' },
-        },
-      },
-      animation: {
-        'fade-in': 'fade-in 0.6s ease-out both',
-        marquee: 'marquee 35s linear infinite',
-        scan: 'scan 4.5s linear infinite',
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        script: ['var(--font-script)', 'cursive'],
       },
     },
   },
-  plugins: [typography],
+  plugins: [],
 }
+
 export default config
