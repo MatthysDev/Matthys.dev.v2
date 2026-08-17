@@ -3,6 +3,7 @@ import Backdrop from './Backdrop'
 import Device from './Device'
 import Footer from './Footer'
 import Nav, { EMAIL } from './Nav'
+import Reveal from './Reveal'
 import Seo from './Seo'
 import type { Project } from '@/content/projects'
 
@@ -39,16 +40,16 @@ export default function ProjectPage({ project, next }: { project: Project; next:
       <section className="project" id={project.slug}>
         <div className="shell">
           <div className="project__grid">
-            <div className="project__media">
+            <Reveal className="project__media">
               <div className="project__phone">
                 <Device src={first.src} alt={first.alt} priority />
               </div>
               <div className="project__phone">
                 <Device src={second.src} alt={second.alt} />
               </div>
-            </div>
+            </Reveal>
 
-            <div className="project__body">
+            <Reveal className="project__body" delay={120}>
               <div className="project__head">
                 <img className="project__logo" src={project.logo} alt="" width={68} height={68} />
                 <div>
@@ -79,10 +80,10 @@ export default function ProjectPage({ project, next }: { project: Project; next:
                   Start a project
                 </a>
                 <Link className="btn btn--ink" href={`/projects/${next.slug}`}>
-                  Next — {next.name}
+                  Next up: {next.name}
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
