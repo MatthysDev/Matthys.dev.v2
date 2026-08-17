@@ -15,7 +15,7 @@ export type Project = {
     /** Path to a logo in /public/clients (clients). */
     logo?: string
     websiteUrl?: string
-    status?: 'live' | 'building' | 'shipped' | 'open-source'
+    status?: 'live' | 'building' | 'shipped' | 'open-source' | 'fail'
     /** Year or range, e.g. '2024' or '2022–2024'. Shown on the card. */
     year?: string
     /** App Store listing URL (shows an App Store button in the modal). */
@@ -72,6 +72,20 @@ const products: Project[] = [
         img: '▦',
         websiteUrl: 'https://matthysdev.github.io/simgrid/',
         status: 'building',
+    },
+    {
+        name: 'Hush',
+        category: 'product',
+        role: 'Solo — my first Electron app, now shipped',
+        description: 'Mute Discord while you dictate — the fail I turned into a shipped app.',
+        longDescription:
+            'A tiny macOS & Windows menu-bar app: hold the push-to-talk shortcut you already use in Wispr Flow and Hush mutes your Discord mic while you talk, then unmutes on release — so the call never hears you dictate. It started as a failure: the first version synthesized Discord\'s mute hotkey, and Discord ignores injected keystrokes, so the mute never fired. Two pivots fixed it — mute Discord over its own RPC socket (SET_VOICE_SETTINGS) instead of a fake keypress, and realise I never needed to synthesize Wispr at all (I press that shortcut myself; Hush just detects it and mutes in parallel). That deleted the entire keystroke-synthesis layer — nut-js, the self-observation guard, the modifier masking — and the app got smaller and actually works. Now open-source (MIT), installable via Homebrew, ~1,000 lines, fully unit-tested.',
+        stack: ['Electron', 'TypeScript', 'Discord RPC', 'macOS', 'Windows'],
+        img: '🤫',
+        logo: '/projects/hush.png',
+        websiteUrl: 'https://matthysdev.github.io/hush/',
+        status: 'open-source',
+        caseStudyUrl: '/blog/hush-mute-discord-while-dictating',
     },
     {
         name: 'matthys.dev',
