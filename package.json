@@ -8,11 +8,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/generate-feeds.mjs",
     "start": "next start",
-    "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

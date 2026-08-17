@@ -19,12 +19,6 @@ export default function Document() {
           content="#050505"
           media="(prefers-color-scheme: dark)"
         />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="Matthys Ducrocq — Blog"
-          href="/rss.xml"
-        />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </Head>
       <body>
