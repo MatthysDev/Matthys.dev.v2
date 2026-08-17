@@ -75,7 +75,7 @@ export default function Home() {
         </div>
 
         {/* Each phone is the link into its own project page. */}
-        <div className="cluster rise rise--5" id="work" ref={cluster}>
+        <div className="cluster" id="work" ref={cluster}>
           <Link
             className="phone phone--front"
             href={`/projects/${EKKLO.slug}`}
