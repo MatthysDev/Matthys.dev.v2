@@ -6,9 +6,18 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* 32px for the tab, 512px for everything that wants to scale up. */}
+        <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#FDFBF6" />
+        {/* Runs before first paint: gates the scroll-reveal styles on JS being
+            alive, and avoids a flash of hidden content on hydration. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
       </Head>
       <body>
         <Main />
