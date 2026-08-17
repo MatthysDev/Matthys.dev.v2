@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>matthys.dev — I build mobile apps</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<style>
+/* ============================================================
+   matthys.dev v2 — hand-written CSS, no utility framework.
+   Ported verbatim from the static prototype so the design can't
+   drift; fonts are injected by next/font as --font-sans / --font-script.
+   ============================================================ */
+
   :root {
     --paper:      #FDFBF6;
     --paper-deep: #F6F2E9;
@@ -43,7 +39,7 @@
     background-size: 72px 72px;
     background-position: center top;
     color: var(--ink);
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -146,7 +142,7 @@
     flex: none;
   }
   .wordmark__script {
-    font-family: "Caveat", cursive;
+    font-family: var(--font-script), cursive;
     font-weight: 700;
     font-size: 34px;
     line-height: .8;
@@ -185,6 +181,7 @@
     transition: background-color 150ms ease, color 150ms ease;
   }
   .nav__link:hover { color: var(--ink); background: rgba(20,21,15,.05); }
+  .nav__link--active { color: var(--ink); background: rgba(20,21,15,.06); }
 
   /* ============ hero ============ */
 
@@ -202,7 +199,7 @@
   }
   /* the promise gets the marker treatment, echoing the wordmark */
   .hero h1 em {
-    font-family: "Caveat", cursive;
+    font-family: var(--font-script), cursive;
     font-style: normal;
     font-weight: 700;
     font-size: 1.24em;
@@ -357,7 +354,7 @@
     letter-spacing: -0.042em;
   }
   .how h2 em {
-    font-family: "Caveat", cursive;
+    font-family: var(--font-script), cursive;
     font-style: normal;
     font-weight: 700;
     font-size: 1.2em;
@@ -472,166 +469,90 @@
     }
   }
 
-
   /* the phones link through to the project page */
   a.phone { text-decoration: none; cursor: pointer; color: var(--ink); }
   a.phone .device { transition: transform 260ms cubic-bezier(.2,.8,.3,1); }
   a.phone:hover .device { transform: translateY(-10px); }
   a.phone:focus-visible { outline: 3px solid var(--lime-deep); outline-offset: 12px; border-radius: 28px; }
-</style>
-</head>
-<body>
-<div class="bg" aria-hidden="true">
-  <div class="bg__mist" style="width:52vw;height:46vw;left:-14vw;top:-12vw;background:radial-gradient(circle at 50% 50%, var(--sand) 0%, transparent 68%);"></div>
-  <div class="bg__mist" style="width:48vw;height:44vw;right:-12vw;top:-8vw;background:radial-gradient(circle at 50% 50%, var(--coral) 0%, transparent 68%);"></div>
-  <div class="bg__mist" style="width:44vw;height:40vw;left:-10vw;top:38%;background:radial-gradient(circle at 50% 50%, var(--teal) 0%, transparent 68%);"></div>
-  <div class="bg__mist" style="width:46vw;height:42vw;right:-11vw;top:30%;background:radial-gradient(circle at 50% 50%, var(--violet) 0%, transparent 68%);"></div>
-  <div class="bg__mist" style="width:56vw;height:44vw;left:14%;bottom:-18vw;background:radial-gradient(circle at 50% 50%, var(--lime) 0%, transparent 66%);opacity:.55;"></div>
-  <div class="bg__mist" style="width:40vw;height:36vw;right:6%;bottom:-10vw;background:radial-gradient(circle at 50% 50%, var(--sky) 0%, transparent 68%);"></div>
-  <div class="bg__mist" style="width:26vw;height:24vw;left:30%;top:8%;background:radial-gradient(circle at 50% 50%, var(--pink) 0%, transparent 70%);opacity:.42;"></div>
-  <div class="bg__mist" style="width:34vw;height:30vw;left:8%;bottom:26%;background:radial-gradient(circle at 50% 50%, var(--blue) 0%, transparent 70%);opacity:.34;"></div>
-</div>
 
-<!-- ==================== HERO ==================== -->
-<header class="hero">
+  /* ============ project page ============ */
 
-  <div class="shell">
-    <div class="nav-wrap">
-      <nav class="nav rise rise--1">
-        <a class="wordmark" href="/" aria-label="matthys.dev">
-          <span class="wordmark__script">matthys</span>
-          <span class="wordmark__tld">.dev</span>
-          <svg class="wordmark__swash" viewBox="0 0 104 12" aria-hidden="true">
-            <path d="M2 8.4c14-3.6 30-5.4 48-5 16 .4 34 2.2 52 5.6" />
-          </svg>
-        </a>
-        <div class="nav__links">
-          <a class="nav__link" href="/projects">Work</a>
-          <a class="nav__link" href="#how">How I work</a>
-          <a class="btn btn--ink btn--sm" href="mailto:ducrocq.matthys@gmail.com">Let’s talk</a>
-        </div>
-      </nav>
-    </div>
+  .page-hero { position: relative; text-align: center; padding: clamp(52px, 7vw, 92px) 0 clamp(40px, 5vw, 64px); }
+  .page-hero h1 {
+    margin: 0 auto;
+    font-size: clamp(34px, 5vw, 66px);
+    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+  }
+  .page-hero h1 em {
+    font-family: var(--font-script), cursive; font-style: normal; font-weight: 700;
+    font-size: 1.24em; letter-spacing: 0; line-height: .9;
+    display: inline-block; position: relative; padding: 0 .06em;
+  }
+  .page-hero h1 em::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: .1em;
+    height: .17em; background: var(--lime); border-radius: 999px; z-index: -1;
+  }
+  .page-hero p { margin: 24px auto 0; max-width: 52ch; font-size: 16.5px; color: var(--ink-soft); line-height: 1.62; }
 
-    <div class="hero__inner">
-      <h1 class="rise rise--2">
-        I build mobile apps that<br />
-        <em>save time</em> and <em>make money</em>
-      </h1>
+  .project { position: relative; padding: clamp(56px, 7vw, 104px) 0; }
+  .project + .project { border-top: 1px solid rgba(20,21,15,.08); }
+  .project__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 76px);
+    align-items: center;
+  }
+  .project--flip .project__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); }
+  .project--flip .project__media { order: 2; }
 
-      <p class="rise rise--3">
-        React Native and Expo, from the first sketch to the release notes.
-        One codebase, both stores, and a build in your hands from week one —
-        not a demo six months from now.
-      </p>
+  /* two phones per project, fanned */
+  .project__media { display: flex; justify-content: center; align-items: flex-start; }
+  .project__phone { width: 47%; filter: drop-shadow(0 28px 38px rgba(20,21,15,.20)); }
+  .project__phone:first-child  { transform: rotate(-6deg); z-index: 2; }
+  .project__phone:last-child   { transform: rotate(6deg) translate(-12%, 26px); z-index: 1; }
 
-      <div class="hero__cta rise rise--4">
-        <a class="btn btn--lime" href="mailto:ducrocq.matthys@gmail.com">Start a project</a>
-        <a class="btn btn--ink" href="/projects">See the work</a>
-      </div>
+  .project__head { display: flex; align-items: center; gap: 18px; }
+  .project__logo {
+    flex: none;
+    width: 68px; height: 68px;
+    border-radius: 17px;
+    box-shadow: 0 1px 2px rgba(20,21,15,.10), 0 14px 28px -16px rgba(20,21,15,.5);
+  }
+  .project__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 4px;
+  }
+  .project__eyebrow s { text-decoration: none; width: 8px; height: 8px; border-radius: 50%; }
+  .project__body h1,
+  .project__body h2 {
+    margin: 0;
+    font-size: clamp(30px, 3.6vw, 44px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
+  }
+  .project__lede { margin: 14px 0 0; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.45; }
+  .project__body p.body { margin: 16px 0 0; font-size: 15.5px; color: var(--ink-soft); line-height: 1.66; text-wrap: pretty; }
 
-    </div>
-  </div>
+  .facts { margin: 26px 0 0; display: grid; gap: 14px; }
+  .fact { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 14px; align-items: baseline; }
+  .fact dt { font-size: 12.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-faint); }
+  .fact dd { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
 
-  <!-- phone cluster -->
-  <div class="cluster rise rise--5" id="work">
-    <a class="phone phone--front" href="/projects#ekklo" aria-label="Ekklo — see the project">
-      <div class="device">
-        <span class="phone__tag tag--ekklo"><img src="/logos/ekklo.png" alt="" />Ekklo <span>· 12-day streak</span></span>
-        <div class="device__body">
-          <span class="device__key device__key--mute"></span>
-          <span class="device__key device__key--vup"></span>
-          <span class="device__key device__key--vdn"></span>
-          <span class="device__key device__key--pow"></span>
-          <div class="device__screen">
-            <span class="device__island"></span>
-            <img src="/shots/ekklo-home.png" alt="Ekklo — the home screen: a 12-day streak and the day's focus" />
-          </div>
-        </div>
-      </div>
-    </a>
+  .project__cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-    <a class="phone phone--back" href="/projects#compagnie" aria-label="Compagnie — see the project">
-      <div class="device">
-        <span class="phone__tag tag--compagnie"><img src="/logos/compagnie.png" alt="" />Compagnie <span>· issue board</span></span>
-        <div class="device__body">
-          <span class="device__key device__key--mute"></span>
-          <span class="device__key device__key--vup"></span>
-          <span class="device__key device__key--vdn"></span>
-          <span class="device__key device__key--pow"></span>
-          <div class="device__screen">
-            <span class="device__island"></span>
-            <img src="/shots/compagnie-tickets.png" alt="Compagnie — the active issue board on mobile" />
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-</header>
+  .outro { position: relative; text-align: center; padding: clamp(72px, 9vw, 128px) 0 clamp(80px, 9vw, 120px); }
+  .outro h2 { margin: 0; font-size: clamp(28px, 3.8vw, 46px); font-weight: 800; letter-spacing: -0.04em; }
+  .outro h2 em {
+    font-family: var(--font-script), cursive; font-style: normal; font-weight: 700;
+    font-size: 1.2em; letter-spacing: 0;
+  }
+  .outro p { margin: 14px auto 30px; max-width: 46ch; font-size: 16px; color: var(--ink-soft); }
 
-<!-- ==================== HOW IT WORKS ==================== -->
-<section class="how" id="how">
-
-  <div class="shell">
-    <span class="how__eyebrow">Plan · Build · Release</span>
-    <h2>Three steps, <em>no surprises</em></h2>
-    <p class="how__kicker">You always know what ships next, and when.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step__badge">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M46 3c15-3 27 9 36 19 8 9 19 17 16 30-3 14-19 17-30 25-10 8-19 21-31 17C24 90 20 73 13 62 6 50-3 36 6 25 14 15 31 6 46 3Z" fill="var(--lime)"/>
-          </svg>
-          <b>1</b>
-        </div>
-        <h3>Plan</h3>
-        <p>We cut the scope to what the first release actually needs — the flows that earn their place, and the ones that can wait.</p>
-      </div>
-
-      <div class="step">
-        <div class="step__badge">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M52 2c16 1 22 16 32 25 9 8 17 19 12 31-6 13-22 14-33 21-11 6-22 18-33 12C19 85 20 68 15 56 10 43 3 29 13 20 22 11 37 1 52 2Z" fill="var(--lime)"/>
-          </svg>
-          <b>2</b>
-        </div>
-        <h3>Build</h3>
-        <p>One React Native codebase for iOS and Android. A real build on a real device every week, so nothing is a surprise at the end.</p>
-      </div>
-
-      <div class="step">
-        <div class="step__badge">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M48 5c17-4 25 12 35 21 9 9 20 15 17 28-3 14-20 19-31 26-10 7-17 18-29 15C27 92 21 76 14 65 7 53-1 39 8 28 16 18 32 8 48 5Z" fill="var(--lime)"/>
-          </svg>
-          <b>3</b>
-        </div>
-        <h3>Release</h3>
-        <p>Store submission, over-the-air updates, crash reporting. It ships — and it keeps shipping after launch day.</p>
-      </div>
-    </div>
-
-    <div class="how__cta">
-      <a class="btn btn--lime" href="mailto:ducrocq.matthys@gmail.com">Start a project</a>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="footer">
-  <div class="shell">
-    <span>© <span id="year">2026</span> Matthys Ducrocq</span>
-    <nav>
-      <a href="mailto:ducrocq.matthys@gmail.com">Email</a>
-      <a href="https://github.com/matthysdev" rel="me">GitHub</a>
-      <a href="https://x.com/matthysdev" rel="me">X</a>
-    </nav>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+  @media (max-width: 900px) {
+    .project__grid, .project--flip .project__grid { grid-template-columns: 1fr; gap: 34px; }
+    .project--flip .project__media { order: 0; }
+    .project__phone { width: 44%; }
+    .fact { grid-template-columns: 1fr; gap: 4px; }
+  }
