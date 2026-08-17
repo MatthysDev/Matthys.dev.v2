@@ -128,7 +128,7 @@ export default function Home() {
             <p className="how__kicker">You always know what ships next, and when.</p>
           </Reveal>
 
-          <div className="steps">
+          <Reveal className="steps reveal--flat">
             {STEPS.map((step, i) => (
               <Reveal className="step" key={step.title} delay={i * 110}>
                 <div className="step__badge">
@@ -141,7 +141,7 @@ export default function Home() {
                 <p>{step.copy}</p>
               </Reveal>
             ))}
-          </div>
+          </Reveal>
 
           <Reveal className="how__cta" delay={120}>
             <a className="btn btn--lime" href={`mailto:${EMAIL}`}>

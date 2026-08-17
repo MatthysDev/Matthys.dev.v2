@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Backdrop from './Backdrop'
 import Device from './Device'
+import Figures from './Figures'
 import Footer from './Footer'
 import Nav, { EMAIL } from './Nav'
 import Reveal from './Reveal'
@@ -70,7 +71,7 @@ export default function ProjectPage({ project, next }: { project: Project; next:
                 {project.facts.map((f) => (
                   <div className="fact" key={f.label}>
                     <dt>{f.label}</dt>
-                    <dd>{f.value}</dd>
+                    <dd><Figures text={f.value} /></dd>
                   </div>
                 ))}
               </dl>

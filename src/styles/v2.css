@@ -635,3 +635,36 @@
   }
   /* the lift on hover has to compose with the same variables */
   a.phone:hover .device { transform: translateY(-10px) scale(1.012); }
+
+  /* --- a reveal that only reports visibility, without fading its own box --- */
+
+  .js .reveal.reveal--flat { opacity: 1; transform: none; }
+
+  /* --- the 1-2-3 assembles itself --- */
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* the dashed thread draws between the badges */
+    .js .steps::before { transform: scaleX(0); transform-origin: left center; }
+    .js .steps.reveal--in::before {
+      animation: thread .85s cubic-bezier(.3,.8,.3,1) .22s both;
+    }
+
+    /* each splotch drops in and rights itself */
+    .js .step .step__badge { opacity: 0; }
+    .js .step.reveal--in .step__badge {
+      animation: pop .58s cubic-bezier(.2,1.5,.4,1) both;
+    }
+  }
+
+  @keyframes thread { to { transform: scaleX(1); } }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(.55) rotate(-16deg); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* --- counting figures must not reflow while they tick --- */
+
+  .figure {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
