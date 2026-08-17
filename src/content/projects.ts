@@ -35,13 +35,15 @@ export const EKKLO: Project = {
     },
     {
       text:
-        'The interesting part is that it is white-label. The same codebase ships as Ekklo and as a dozen coach-branded apps, each with its own bundle id, icon, splash and palette, then built, versioned and submitted to both stores from a single pipeline.',
+        'The interesting part is that it is white-label. The same codebase ships as Ekklo and as 92 coach-branded apps, each with its own bundle id, icon, splash and palette, then built, versioned and submitted to both stores from a single pipeline.',
       bold: 'white-label',
     },
   ],
   facts: [
+    { label: 'Reach', value: '40,000 members and 9,512 coaches. Live since 2024.' },
+    { label: 'Rated', value: '4.7 on the App Store, across 277 reviews.' },
+    { label: 'Scale', value: 'The main app plus 92 white-label builds, released from one pipeline.' },
     { label: 'Platforms', value: 'iOS & Android, one codebase. Apple Watch companion in progress.' },
-    { label: 'Scale', value: 'The main app plus a dozen white-label builds, released from one pipeline.' },
   ],
   logo: '/logos/ekklo.png',
   shots: [
@@ -53,7 +55,7 @@ export const EKKLO: Project = {
   meta: {
     title: 'Ekklo · matthys.dev',
     description:
-      'A white-label coaching and nutrition app: timed sessions, demo videos, meal plans, habits and a server-validated streak. One React Native codebase, a dozen coach-branded builds.',
+      'A white-label coaching and nutrition app used by 40,000 members and 9,512 coaches: timed sessions, demo videos, meal plans, habits and a server-validated streak. One React Native codebase, 92 coach-branded builds.',
   },
 }
 
@@ -78,8 +80,9 @@ export const COMPAGNIE: Project = {
     },
   ],
   facts: [
-    { label: 'Platforms', value: 'iOS & Android, plus web, desktop and a CLI on the same API.' },
-    { label: 'My part', value: 'The mobile client, the third client on that shared capability surface.' },
+    { label: 'Status', value: 'Private beta, aimed at teams of fewer than ten.' },
+    { label: 'Platforms', value: 'Web, Mac, a CLI and an MCP server, plus the mobile client.' },
+    { label: 'My part', value: 'The mobile client, built on that shared capability surface.' },
   ],
   logo: '/logos/compagnie.png',
   shots: [
