@@ -35,9 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated feeds (postbuild)
-/public/rss.xml
-/public/sitemap.xml
 
 # brainstorming companion mockups
 /.superpowers/
