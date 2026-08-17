@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useScrolled } from '@/hooks/useScrollFx'
 
 export const EMAIL = 'ducrocq.matthys@gmail.com'
 
@@ -15,9 +16,10 @@ const LINKS: { key: Exclude<NavKey, null>; href: string; label: string }[] = [
  * `active` underlines the project you are currently reading.
  */
 export default function Nav({ active = null, rise = false }: { active?: NavKey; rise?: boolean }) {
+  const stuck = useScrolled()
   return (
     <div className="nav-wrap">
-      <nav className={`nav${rise ? ' rise rise--1' : ''}`}>
+      <nav className={`nav${rise ? ' rise rise--1' : ''}${stuck ? ' nav--stuck' : ''}`}>
         <Link className="wordmark" href="/" aria-label="matthys.dev">
           <span className="wordmark__script">matthys</span>
           <span className="wordmark__tld">.dev</span>

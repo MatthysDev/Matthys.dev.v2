@@ -443,6 +443,8 @@
     .wordmark__script { font-size: 29px; }
     .wordmark__swash { width: 88px; }
     .hero h1 { font-size: clamp(34px, 10vw, 46px); }
+    /* the desktop line break leaves a lonely word here */
+    .hero h1 br { display: none; }
     .cluster { margin-top: 44px; height: 290px; }
     .phone--front { width: 138px; translate: -92% 0; }
     .phone--back  { width: 138px; translate: -8% 0; }
@@ -556,3 +558,80 @@
     .project__phone { width: 44%; }
     .fact { grid-template-columns: 1fr; gap: 4px; }
   }
+
+  /* ============================================================
+     Motion. Everything here is opt-out via prefers-reduced-motion,
+     and every moving piece is driven by a custom property so JS
+     never has to own a whole `transform` string.
+     ============================================================ */
+
+  /* --- the marker strokes draw themselves on --- */
+
+  .hero h1 em::after { transform-origin: left center; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero h1 em::after {
+      animation: mark .52s cubic-bezier(.22,.9,.3,1) both;
+    }
+    .hero h1 em:nth-of-type(1)::after { animation-delay: .46s; }
+    .hero h1 em:nth-of-type(2)::after { animation-delay: .66s; }
+
+
+    .wordmark__swash path {
+      stroke-dasharray: 130;
+      animation: draw .8s cubic-bezier(.3,.8,.3,1) .2s both;
+    }
+  }
+
+  @keyframes mark { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes draw { from { stroke-dashoffset: 130; } to { stroke-dashoffset: 0; } }
+
+  /* --- scroll reveal --- */
+
+  .reveal { opacity: 1; }
+
+  /* `.js` is set by an inline script before first paint. Without it every
+     reveal stays visible, so a JS failure can never blank the page. */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .72s cubic-bezier(.22,.8,.3,1), transform .72s cubic-bezier(.22,.8,.3,1);
+    }
+    .js .reveal--in { opacity: 1; transform: none; }
+  }
+
+  /* --- nav compacts once you leave the top --- */
+
+  .nav {
+    transition: padding 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+  }
+  .nav--stuck {
+    padding: 6px 8px 6px 18px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 1px 2px rgba(20,21,15,.06), 0 12px 26px -18px rgba(20,21,15,.45);
+  }
+  .wordmark__script,
+  .wordmark__tld,
+  .wordmark__swash { transition: font-size 260ms ease, width 260ms ease, opacity 200ms ease; }
+  .nav--stuck .wordmark__script { font-size: 27px; }
+  .nav--stuck .wordmark__tld { font-size: 14px; }
+  .nav--stuck .wordmark__swash { width: 84px; opacity: .8; }
+
+  /* --- phones: scroll parallax + a tilt that follows the pointer --- */
+
+  .phone--front,
+  .phone--back {
+    transform:
+      rotate(var(--rot))
+      translate3d(0, var(--pty, 0px), 0)
+      rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg));
+    transform-style: preserve-3d;
+  }
+  .cluster { perspective: 1400px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .phone--front, .phone--back { transition: transform 240ms cubic-bezier(.22,.8,.3,1); }
+  }
+  /* the lift on hover has to compose with the same variables */
+  a.phone:hover .device { transform: translateY(-10px) scale(1.012); }

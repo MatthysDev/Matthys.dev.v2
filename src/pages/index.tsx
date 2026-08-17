@@ -1,9 +1,12 @@
+import { useRef } from 'react'
 import Link from 'next/link'
 import Backdrop from '@/components/v2/Backdrop'
 import Device, { DeviceTag } from '@/components/v2/Device'
 import Footer from '@/components/v2/Footer'
 import Nav, { EMAIL } from '@/components/v2/Nav'
+import Reveal from '@/components/v2/Reveal'
 import Seo from '@/components/v2/Seo'
+import { usePhoneParallax } from '@/hooks/useScrollFx'
 import { COMPAGNIE, EKKLO } from '@/content/projects'
 
 // Irregular lime splotches behind the step numbers.
@@ -17,7 +20,7 @@ const STEPS = [
   {
     title: 'Plan',
     copy:
-      'We cut the scope to what the first release actually needs — the flows that earn their place, and the ones that can wait.',
+      'We cut the scope to what the first release actually needs: the flows that earn their place, and the ones that can wait.',
   },
   {
     title: 'Build',
@@ -27,15 +30,18 @@ const STEPS = [
   {
     title: 'Release',
     copy:
-      'Store submission, over-the-air updates, crash reporting. It ships — and it keeps shipping after launch day.',
+      'Store submission, over-the-air updates, crash reporting. It ships, and it keeps shipping after launch day.',
   },
 ]
 
 export default function Home() {
+  const cluster = useRef<HTMLDivElement | null>(null)
+  usePhoneParallax(cluster)
+
   return (
     <>
       <Seo
-        title="matthys.dev — I build mobile apps"
+        title="matthys.dev · I build mobile apps"
         description="React Native and Expo, from the first sketch to the release notes. One codebase, both stores, and a build in your hands from week one."
         path="/"
       />
@@ -54,7 +60,7 @@ export default function Home() {
 
             <p className="rise rise--3">
               React Native and Expo, from the first sketch to the release notes. One codebase, both
-              stores, and a build in your hands from week one — not a demo six months from now.
+              stores, and a build in your hands from week one, not a demo six months from now.
             </p>
 
             <div className="hero__cta rise rise--4">
@@ -69,11 +75,11 @@ export default function Home() {
         </div>
 
         {/* Each phone is the link into its own project page. */}
-        <div className="cluster rise rise--5" id="work">
+        <div className="cluster rise rise--5" id="work" ref={cluster}>
           <Link
             className="phone phone--front"
             href={`/projects/${EKKLO.slug}`}
-            aria-label={`${EKKLO.name} — see the project`}
+            aria-label={`${EKKLO.name}: see the project`}
           >
             <Device
               src={EKKLO.shots[0].src}
@@ -93,7 +99,7 @@ export default function Home() {
           <Link
             className="phone phone--back"
             href={`/projects/${COMPAGNIE.slug}`}
-            aria-label={`${COMPAGNIE.name} — see the project`}
+            aria-label={`${COMPAGNIE.name}: see the project`}
           >
             <Device
               src={COMPAGNIE.shots[0].src}
@@ -114,15 +120,17 @@ export default function Home() {
 
       <section className="how" id="how">
         <div className="shell">
-          <span className="how__eyebrow">Plan · Build · Release</span>
-          <h2>
-            Three steps, <em>no surprises</em>
-          </h2>
-          <p className="how__kicker">You always know what ships next, and when.</p>
+          <Reveal>
+            <span className="how__eyebrow">Plan · Build · Release</span>
+            <h2>
+              Three steps, <em>no surprises</em>
+            </h2>
+            <p className="how__kicker">You always know what ships next, and when.</p>
+          </Reveal>
 
           <div className="steps">
             {STEPS.map((step, i) => (
-              <div className="step" key={step.title}>
+              <Reveal className="step" key={step.title} delay={i * 110}>
                 <div className="step__badge">
                   <svg viewBox="0 0 100 100" aria-hidden="true">
                     <path d={STEP_BLOBS[i]} fill="var(--lime)" />
@@ -131,15 +139,15 @@ export default function Home() {
                 </div>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="how__cta">
+          <Reveal className="how__cta" delay={120}>
             <a className="btn btn--lime" href={`mailto:${EMAIL}`}>
               Start a project
             </a>
-          </div>
+          </Reveal>
         </div>
       </section>
 
