@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="shell">
-        <span>© {new Date().getFullYear()} Matthys Ducrocq</span>
+        <span>© {new Date().getFullYear()} Matthys</span>
         <nav>
           <a href={`mailto:${EMAIL}`}>Email</a>
           <a href="https://github.com/matthysdev" rel="me noreferrer" target="_blank">
